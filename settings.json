@@ -1,0 +1,74 @@
+{
+    "gitlens.codeLens.scopes": [
+        "document",
+        "containers",
+        "blocks"
+    ],
+    "gitlens.historyExplorer.enabled": true,
+    "gitlens.keymap": "alternate",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "liveServer.settings.donotShowInfoMsg": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.syntaxProfiles": {
+        "javascript": "jsx"
+    },
+    // * --- seperator here ---
+    // "spotify.useCombinedApproachOnMacOS": false,
+    "extensions.ignoreRecommendations": false,
+    "javascript.referencesCodeLens.enabled": true,
+    "eslint.packageManager": "npm",
+    "sync.gist": "c7e7286d385578845c41a46aaf6ab6d9",
+    // * --- seperator here ---
+    "files.autoSave": "onWindowChange",
+    "files.trimTrailingWhitespace": true,
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Operator Mono Lig, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 25,
+    "editor.letterSpacing": 0.5,
+    "workbench.startupEditor": "none",
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "One Dark Pro",
+    "terminal.integrated.fontFamily": "Operator Mono",
+    "terminal.integrated.cursorStyle": "underline",
+    "importCost.smallPackageColor": "#FAEBD7",
+    "importCost.mediumPackageColor": "#EECFA1",
+    "importCost.largePackageColor": "#9D8851",
+    "gitlens.views.fileHistory.enabled": true,
+    "gitlens.views.lineHistory.enabled": true,
+    "editor.fontLigatures": true,
+    "breadcrumbs.enabled": true,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "browser-preview.startUrl": "",
+    // ? test configs
+    // "workbench.colorCustomizations": {
+    //     "statusBar.background": "#1a1a1a",
+    //     "statusBar.noFolderBackground": "#212121",
+    //     "statusBar.debuggingBackground": "#263238"
+    // },
+    // "workbench.colorCustomizations": {
+    //     "terminal.foreground": "#00fd5494",
+    //     "terminal.background": "#292926"
+    // }
+}
