@@ -1,0 +1,7 @@
+[user]
+	name = Siddharth Rawat
+	email = siddharth.rawat94@gmail.com
+[core]
+	editor = code --wait
+[credential]
+	helper = osxkeychain
