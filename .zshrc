@@ -34,7 +34,7 @@ ZSH_THEME="spaceship"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
- DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -123,3 +123,19 @@ tabtitle_preexec() {
 }
 [[ -z $preexec_functions ]] && preexec_functions=()
 preexec_functions=($preexec_functions tabtitle_preexec)
+
+# Deploy your code immediately
+deploy() {
+   git add .
+   git commit -m $1
+   git push
+}
+
+# Initial setup for React
+addReactStuff () {
+   npm init -y
+   npm i react react-dom styled-components
+   npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin webpack webpack-cli webpack-dev-server
+}
+
+autoload -U promptinit; promptinit
