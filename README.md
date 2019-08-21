@@ -3,6 +3,7 @@
 These are my dotfiles. Take anything you want, but at your own risk.
 
 I'm still figuring my way around these things! So it's going to take a while.
+
 ## The `dotfiles` command
 
     $ dotfiles help
