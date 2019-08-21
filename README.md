@@ -3,6 +3,36 @@
 These are my dotfiles. Take anything you want, but at your own risk.
 
 I'm still figuring my way around these things! So it's going to take a while.
+
+## Folder structure
+
+```
+.
+├── install.sh
+├── LICENSE
+├── README.md
+├── configs
+│ ├── hyper
+│ │ ├── .hyper.js
+│ │ ├── .zprofile
+│ │ └── .zshrc
+│ ├── vim
+│ │ └── .vimrc
+│ └── vscode
+│   ├── .babelrc
+│   ├── .eslintrc
+│   ├── .prettierrc
+│   └── settings.json
+├── extras
+│ └── cmd-colors.sh
+├── git
+│ └── .gitconfig
+├── runcom
+│ └── .bash_profile
+└── snippets
+ └── java.json
+```
+
 ## The `dotfiles` command
 
     $ dotfiles help
