@@ -1,74 +1,122 @@
 {
-    "gitlens.codeLens.scopes": [
-        "document",
-        "containers",
-        "blocks"
-    ],
-    "gitlens.historyExplorer.enabled": true,
-    "gitlens.keymap": "alternate",
-    "gitlens.advanced.messages": {
-        "suppressCommitHasNoPreviousCommitWarning": false,
-        "suppressCommitNotFoundWarning": false,
-        "suppressFileNotUnderSourceControlWarning": false,
-        "suppressGitVersionWarning": false,
-        "suppressLineUncommittedWarning": false,
-        "suppressNoRepositoryWarning": false,
-        "suppressResultsExplorerNotice": false,
-        "suppressShowKeyBindingsNotice": true
-    },
-    "liveServer.settings.donotShowInfoMsg": true,
-    "emmet.includeLanguages": {
-        "javascript": "javascriptreact"
-    },
-    "emmet.syntaxProfiles": {
-        "javascript": "jsx"
-    },
-    // * --- seperator here ---
-    // "spotify.useCombinedApproachOnMacOS": false,
-    "extensions.ignoreRecommendations": false,
-    "javascript.referencesCodeLens.enabled": true,
-    "eslint.packageManager": "npm",
-    "sync.gist": "c7e7286d385578845c41a46aaf6ab6d9",
-    // * --- seperator here ---
-    "files.autoSave": "onWindowChange",
-    "files.trimTrailingWhitespace": true,
-    "editor.wordWrap": "on",
-    "editor.wrappingIndent": "indent",
-    "editor.formatOnSave": true,
-    "editor.fontFamily": "Operator Mono Lig, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-    "editor.fontSize": 13,
-    "editor.lineHeight": 25,
-    "editor.letterSpacing": 0.5,
-    "workbench.startupEditor": "none",
-    "workbench.iconTheme": "material-icon-theme",
-    "workbench.colorTheme": "One Dark Pro",
-    "terminal.integrated.fontFamily": "Operator Mono",
-    "terminal.integrated.cursorStyle": "underline",
-    "importCost.smallPackageColor": "#FAEBD7",
-    "importCost.mediumPackageColor": "#EECFA1",
-    "importCost.largePackageColor": "#9D8851",
-    "gitlens.views.fileHistory.enabled": true,
-    "gitlens.views.lineHistory.enabled": true,
-    "editor.fontLigatures": true,
-    "breadcrumbs.enabled": true,
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "java.errors.incompleteClasspath.severity": "ignore",
-    "files.exclude": {
-        "**/.classpath": true,
-        "**/.project": true,
-        "**/.settings": true,
-        "**/.factorypath": true
-    },
-    "browser-preview.startUrl": "",
-    // ? test configs
-    // "workbench.colorCustomizations": {
-    //     "statusBar.background": "#1a1a1a",
-    //     "statusBar.noFolderBackground": "#212121",
-    //     "statusBar.debuggingBackground": "#263238"
-    // },
-    // "workbench.colorCustomizations": {
-    //     "terminal.foreground": "#00fd5494",
-    //     "terminal.background": "#292926"
-    // }
+  "gitlens.codeLens.scopes": [
+    "document"
+  ],
+  // "gitlens.historyExplorer.enabled": true,
+  "gitlens.keymap": "alternate",
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressResultsExplorerNotice": false,
+    "suppressShowKeyBindingsNotice": true
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  // * --- seperator here ---
+  // "spotify.useCombinedApproachOnMacOS": false,
+  "extensions.ignoreRecommendations": false,
+  "javascript.referencesCodeLens.enabled": true,
+  "eslint.packageManager": "npm",
+  "sync.gist": "c7e7286d385578845c41a46aaf6ab6d9",
+  // * --- seperator here ---
+  "files.autoSave": "onWindowChange",
+  "files.trimTrailingWhitespace": true,
+  "editor.wordWrap": "on",
+  "editor.wrappingIndent": "indent",
+  "editor.formatOnSave": true,
+  "editor.fontFamily": "Dank Mono, Operator Mono Lig, Dank Mono, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontSize": 13.5,
+  "editor.lineHeight": 25,
+  "workbench.startupEditor": "none",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "One Dark Pro",
+  "terminal.integrated.fontFamily": "Dank Mono, Noto Mono for Powerline",
+  "terminal.integrated.cursorStyle": "underline",
+  "importCost.smallPackageColor": "#FAEBD7",
+  "importCost.mediumPackageColor": "#EECFA1",
+  "importCost.largePackageColor": "#9D8851",
+  "gitlens.views.fileHistory.enabled": true,
+  "editor.fontLigatures": true,
+  "breadcrumbs.enabled": true,
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "java.errors.incompleteClasspath.severity": "ignore",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.project": true,
+    "**/.settings": true,
+    "**/.factorypath": true
+  },
+  //   "browser-preview.startUrl": "",
+  "prettier.singleQuote": true,
+  "diffEditor.ignoreTrimWhitespace": true,
+  // test configs
+  // "workbench.colorCustomizations": {
+  //     "statusBar.background": "#1a1a1a",
+  //     "statusBar.noFolderBackground": "#212121",
+  //     "statusBar.debuggingBackground": "#263238"
+  // },
+  // Integrated Terminal Color configurations
+  "workbench.colorCustomizations": {
+    //standard ANSI colors
+    "terminal.ansiBlack": "#2b303b",
+    "terminal.ansiRed": "#bf616a",
+    "terminal.ansiGreen": "#a3be8c",
+    "terminal.ansiYellow": "#ebcb8b",
+    "terminal.ansiBlue": "#8fa1b3",
+    "terminal.ansiMagenta": "#b48ead",
+    "terminal.ansiCyan": "#96b5b4",
+    "terminal.ansiWhite": "#c0c5ce",
+    "terminal.ansiBrightBlack": "#2b303b",
+    "terminal.ansiBrightRed": "#bf616a",
+    "terminal.ansiBrightGreen": "#a3be8c",
+    "terminal.ansiBrightYellow": "#ebcb8b",
+    "terminal.ansiBrightBlue": "#8fa1b3",
+    "terminal.ansiBrightMagenta": "#b48ead",
+    "terminal.ansiBrightCyan": "#96b5b4",
+    "terminal.ansiBrightWhite": "#c0c5ce",
+    // "terminalCursor.background": "#8fa1b3",
+    // "terminalCursor.foreground": "#ebcb8b",
+    "terminal.background": "#2b303b",
+    "terminal.foreground": "#c0c5ce",
+    //git colors on the sidebar
+    "gitDecoration.untrackedResourceForeground": "#a3be8c",
+    "gitDecoration.modifiedResourceForeground": "#ebcb8b"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "gitlens.blame.highlight.locations": [
+    "gutter",
+    "line",
+    "overview"
+  ],
+  "gitlens.blame.separateLines": false,
+  "markdown.preview.fontFamily": "Dank Mono, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+  "explorer.compactFolders": false,
+  // For which languages indent-rainbow should be activated (if empty it means all).
+  "indentRainbow.includedLanguages": [
+    "nim",
+    "nims",
+    "python"
+  ],
+  "editor.renderWhitespace": "boundary",
+  "material-icon-theme.folders.color": "#a8d6d6",
+  "material-icon-theme.folders.theme": "specific",
+  "material-icon-theme.saturation": 0.8,
+  "files.associations": {
+  
+  }
 }
