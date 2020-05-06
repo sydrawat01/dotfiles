@@ -33,6 +33,23 @@
   "editor.wordWrap": "on",
   "editor.wrappingIndent": "indent",
   "editor.formatOnSave": true,
+  //turn off formatOnSave for JS and JSX, we will do this via eslint
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  // tell the ESLint plugin to run on save
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
   "editor.fontFamily": "Dank Mono, Operator Mono Lig, Dank Mono, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontSize": 13.5,
   "editor.lineHeight": 25,
@@ -92,9 +109,6 @@
     "gitDecoration.untrackedResourceForeground": "#a3be8c",
     "gitDecoration.modifiedResourceForeground": "#ebcb8b"
   },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -109,6 +123,7 @@
   // For which languages indent-rainbow should be activated (if empty it means all).
   "indentRainbow.includedLanguages": [
     "nim",
+    "javascript",
     "nims",
     "python"
   ],
@@ -116,7 +131,6 @@
   "material-icon-theme.folders.color": "#a8d6d6",
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.saturation": 0.8,
-  "files.associations": {
-  
-  }
+  "python.jediEnabled": false,
+  "oneDarkPro.bold": true,
 }
