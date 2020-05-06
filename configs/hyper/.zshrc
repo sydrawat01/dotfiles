@@ -132,10 +132,18 @@ deploy() {
 }
 
 # Initial setup for React
-addReactStuff () {
+reactDev() {
    npm init -y
    npm i react react-dom styled-components
    npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin webpack webpack-cli webpack-dev-server
+}
+
+# Install dependencies for eslint and prettier
+eslint() {
+   npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node
+   npx install-peerdeps --dev eslint-config-airbnb
+   printf '{\n  "printWidth": 100,\n  "semi": true,\n  "singleQuote": true,\n  "trailingComma": "all",\n  "bracketSpacing": true,\n  "arrowParens": "always"\n}' > .prettierrc
+   printf '{\n  "extends": ["airbnb", "prettier", "plugin:node/recommended"],\n  "plugins": ["prettier"],\n  "env": {\n    "browser": true,\n    "node": true,\n    "es6": true\n  },\n  "rules": {\n    "node/no-unsupported-features/node-builtins": "off",\n    "no-param-reassign": "off",\n    "prettier/prettier": "error",\n    "no-unused-vars": "warn",\n    "no-console": "off",\n    "func-names": "off",\n    "no-process-exit": "off",\n    "object-shorthand": "off",\n    "class-methods-use-this": "off",\n    "no-shadow": "warn"\n  }\n}' > .eslintrc
 }
 
 autoload -U promptinit; promptinit
