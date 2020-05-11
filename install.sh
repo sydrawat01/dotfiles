@@ -83,7 +83,7 @@ else
     echo No
 fi
 
-echo -n '############# Installing VSCode Extensions #############'
+install '############# Installing VSCode Extensions #############'
 # these were extracted using: code --list-extensions > extensions.txt
 cat ./configs/vscode/extensions.txt | xargs -L 1 code --install-extension
 
