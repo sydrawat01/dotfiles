@@ -2,110 +2,122 @@
 // which will not automatically be merged into this file.
 // See https://hyper.is#cfg for all currently supported options.
 
+// standard ANSI Colors
+const black = '#2b303b';
+const red = '#bf616a';
+const green = '#a3be8c';
+const yellow = '#ebcb8b';
+const blue = '#8fa1b3';
+const magenta = '#b48ead';
+const cyan = '#96b5b4';
+const white = '#c0c5ce';
+const lightBlack = '#616775';
+const lightRed = '#ea919a';
+const lightGreen = '#d0edb6';
+const lightYellow = '#f9dea7';
+const lightBlue = '#b4cee8';
+const lightMagenta = '#eabee2';
+const lightCyan = '#c3e5e4';
+const lightWhite = '#e1e8f4';
+
+const accentColor = blue;
+
 module.exports = {
   config: {
     // choose either `'stable'` for receiving highly polished,
     // or `'canary'` for less polished but more frequent updates
-    updateChannel: "stable",
+    updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 13,
 
     // font family with optional fallbacks
-    fontFamily:
-      //"Operator Mono Lig",
-      '"Dejavu Sans", "FreeSans", "FreeSerif", Menlo, "DejaVu Sans Mono", Consolas, "Lucida Console", monospace, "Operator Mono Lig"',
+    fontFamily: 'Dank Mono, Operator Mono Lig',
 
     // default font weight: 'normal' or 'bold'
-    fontWeight: "normal",
+    fontWeight: 'normal',
 
     // font weight for bold characters: 'normal' or 'bold'
-    fontWeightBold: "bold",
+    fontWeightBold: 'bold',
+
+    // line height as a relative unit
+    lineHeight: 1,
+
+    // letter spacing as a relative unit
+    letterSpacing: 0,
 
     // terminal cursor background color and opacity (hex, rgb, hsl, hsv, hwb or cmyk)
-    cursorColor: "rgba(190,226,135,0.8)",
+    cursorColor: 'rgba(190,226,135,0.8)',
 
     // terminal text color under BLOCK cursor
-    cursorAccentColor: "#000",
+    cursorAccentColor: accentColor,
 
     // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
-    cursorShape: "UNDERLINE",
+    cursorShape: 'UNDERLINE',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: "#fff",
+    foregroundColor: 'rgb(192, 197, 206,1)',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: "#000",
+    backgroundColor: 'rgba(40,44,52,0.89)',
 
     // terminal selection color
-    selectionColor: "rgba(164,205,255,0.3)",
+    selectionColor: 'rgba(164,205,255,0.3)',
 
     // border color (window, tabs)
-    borderColor: "#333",
+    borderColor: 'rgba(255,255,255, 0.2)',
 
     // size of window by pixels (width, height)
     windowSize: [810, 750],
 
     // custom CSS to embed in the main window
-    css: "",
+    css: '',
 
     // custom CSS to embed in the terminal window
-    termCSS: "",
-
-    // if you're using a Linux setup which show native menus, set to false
-    // default: `true` on Linux, `true` on Windows, ignored on macOS
-    showHamburgerMenu: "",
-
-    // set to `false` (without backticks and without quotes) if you want to hide the minimize, maximize and close buttons
-    // additionally, set to `'left'` if you want them on the left, like in Ubuntu
-    // default: `true` (without backticks and without quotes) on Windows and Linux, ignored on macOS
-    showWindowControls: "",
+    termCSS: '',
 
     // custom padding (CSS format, i.e.: `top right bottom left`)
-    padding: "12px 14px",
+    padding: '12px 14px',
 
-    // the full list. if you're going to provide the full color palette,
-    // including the 6 x 6 color cubes and the grayscale map, just provide
-    // an array here instead of a color map object
+    // hyperline plugin custom config
+    hyperline: {
+      plugins: [
+        "hostname",
+        "ip",
+        "memory",
+        "battery",
+        "cpu",
+        "network"
+      ]
+    },
+
+    /* the full list. if you're going to provide the full color palette,
+     * including the 6 x 6 color cubes and the grayscale map, just provide
+     * an array here instead of a color map object
+     */
     colors: {
-      black: "#000000",
-      red: "#C51E14",
-      green: "#1DC121",
-      yellow: "#C7C329",
-      blue: "#0A2FC4",
-      magenta: "#C839C5",
-      cyan: "#20C5C6",
-      white: "#C7C7C7",
-      lightBlack: "#686868",
-      lightRed: "#FD6F6B",
-      lightGreen: "#67F86F",
-      lightYellow: "#FFFA72",
-      lightBlue: "#6A76FB",
-      lightMagenta: "#FD7CFC",
-      lightCyan: "#68FDFE",
-      lightWhite: "#FFFFFF"
+      black,
+      red,
+      green,
+      yellow,
+      blue,
+      magenta,
+      cyan,
+      white,
+      lightBlack,
+      lightRed,
+      lightGreen,
+      lightYellow,
+      lightBlue,
+      lightMagenta,
+      lightCyan,
+      lightWhite
     },
-    MaterialTheme: {
-      // Set the theme variant,
-      // OPTIONS: 'Darker', 'Palenight', ''
-      theme: "",
 
-      // [Optional] Set the rgba() app background opacity, useful when enableVibrance is true
-      // OPTIONS: From 0.1 to 1
-      backgroundOpacity: "0.8",
-
-      // [Optional] Set the accent color for the current active tab
-      accentColor: "#64FFDA",
-
-      // [Optional] Mac Only. Need restart. Enable the vibrance and blurred background
-      // OPTIONS: 'dark', 'ultra-dark', 'bright'
-      // NOTE: The backgroundOpacity should be between 0.1 and 0.9 to see the effect.
-      vibrancy: "dark"
-    },
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
     //
@@ -118,43 +130,54 @@ module.exports = {
     //
     // PowerShell on Windows
     // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: "/bin/zsh",
-    // shell: '/bin/bash',
+    shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
-    shellArgs: ["--login"],
+    shellArgs: ['--login'],
 
     // for environment variables
     env: {},
 
     // set to `false` for no bell
-    bell: "false",
+    bell: false,
 
     // if `true` (without backticks and without quotes), selected text will automatically be copied to the clipboard
     copyOnSelect: false,
 
     // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
-    defaultSSHApp: true
+    defaultSSHApp: true,
 
     // if `true` (without backticks and without quotes), on right click selected text will be copied or pasted if no
-    // selection is present (`true` by default on Windows and disables the context menu feature)
-    // quickEdit: true,
+    // selection is present (`true` by default on Windowls -s and disables the context menu feature)
+    quickEdit: false,
+
+    // choose either `'vertical'`, if you want the column mode when Option key is hold during selection (Default)
+    // or `'force'`, if you want to force selection regardless of whether the terminal is in mouse events mode
+    // (inside tmux or vim with mouse mode enabled for example).
+    macOptionSelectionMode: 'vertical',
 
     // URL to custom bell
     // bellSoundURL: 'http://example.com/bell.mp3',
 
+    // Whether to use the WebGL renderer. Set it to false to use canvas-based
+    // rendering (slower, but supports transparent backgrounds)
+    webGLRenderer: true,
+
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
 
-  // a list of plugins to fetch and install from npm
-  // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
-  // plugins: ["hyper-oceans16", "hypercwd", "hyperline","hyper-tab-icons-plus"],
-  plugins: ["hyper-dracula", "hypercwd", "hyperline", "hyper-tab-icons-plus"],
+  /* a list of plugins to fetch and install from npm
+   * format: [@org/]project[#version]
+   * examples:
+   *  `@company/project`
+   *  `project#1.0.1`
+   */
+  plugins: [
+    "hyperline",
+    "hypercwd",
+    "hyper-tab-icons-plus",
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
@@ -164,5 +187,6 @@ module.exports = {
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
-  }
+  },
+
 };
