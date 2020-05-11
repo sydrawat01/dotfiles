@@ -2,8 +2,6 @@
 
 These are my dotfiles. Take anything you want, but at your own risk.
 
-I'm still figuring my way around these things! So it's going to take a while.
-
 ## Folder structure
 
 ```
@@ -13,45 +11,42 @@ I'm still figuring my way around these things! So it's going to take a while.
 ├── README.md
 ├── configs
 │ ├── hyper
-│ │ ├── .hyper.js
-│ │ ├── .zprofile
-│ │ └── .zshrc
+│ │ └── .hyper.js
+│ ├── npm
+│ │ └── .npmrc
 │ ├── vim
 │ │ └── .vimrc
 │ └── vscode
 │   ├── .babelrc
 │   ├── .eslintrc
 │   ├── .prettierrc
+│   ├── extensions.txt
+│   ├── java.json
 │   └── settings.json
 ├── extras
 │ └── cmd-colors.sh
 ├── git
 │ └── .gitconfig
 ├── runcom
-│ └── .bash_profile
+│ ├── .bash_profile
+│ ├── .zprofile
+│ ├── .zshrc
+│ └── material-theme.terminal
 └── snippets
  └── java.json
 ```
 
-## The `dotfiles` command
+## One script install
 
-    $ dotfiles help
-    Usage: dotfiles <command>
+To run the script to install all basic software on your Mac, use this shell script: `install.sh`.
 
-    Commands:
-       clean            Clean up caches (brew, npm, gem, rvm)
-       dock             Apply macOS Dock settings
-       edit             Open dotfiles in IDE (code) and Git GUI (stree)
-       help             This help message
-       macos            Apply macOS system defaults
-       test             Run tests
-       update           Update packages and pkg managers (OS, brew, npm, gem)
+Before you can use it, provide exec permissions to this file:
 
-## Customize/extend
+`chmod +x install.sh`
 
-You can put your custom settings, such as Git credentials in the `system/.custom` file which will be sourced from `.bash_profile` automatically. This file is in `.gitignore`.
+Then, run the file:
 
-Alternatively, you can have an additional, personal dotfiles repo at `~/.extra`. The runcom `.bash_profile` sources all `~/.extra/runcom/*.sh` files.
+`./install.sh`
 
 ## Additional resources
 
@@ -60,7 +55,3 @@ Alternatively, you can have an additional, personal dotfiles repo at `~/.extra`.
 - [Homebrew Cask](http://caskroom.io)
 - [Bash prompt](https://wiki.archlinux.org/index.php/Color_Bash_Prompt)
 - [Solarized Color Theme for GNU ls](https://github.com/seebi/dircolors-solarized)
-
-## Credits
-
-Many thanks to the [dotfiles community](https://dotfiles.github.io).

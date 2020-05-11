@@ -63,7 +63,7 @@ module.exports = {
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: 'rgba(40,44,52,0.89)',
+    backgroundColor: 'rgba(40,44,52,1)',
 
     // terminal selection color
     selectionColor: 'rgba(164,205,255,0.3)',
@@ -120,16 +120,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    //
-    // Windows
-    // - Make sure to use a full path if the binary name doesn't work
-    // - Remove `--login` in shellArgs
-    //
-    // Bash on Windows
-    // - Example: `C:\\Windows\\System32\\bash.exe`
-    //
-    // PowerShell on Windows
-    // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
+
     shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
