@@ -223,6 +223,17 @@ else
     echo No
 fi
 
+############# Sketch #############
+install "############# Sketch #############"
+echo -n "Do you wish to install Sketch (${bold}y${reset}/${bold}n${reset})? "
+read sktch
+
+if [ "$sktch" != "${sktch#[Yy]}" ] ;then
+    echo Yes
+    brew cask install sketch
+else
+    echo No
+fi
 
 install "############# CLEANING HOMEBREW #############"
 brew cleanup
