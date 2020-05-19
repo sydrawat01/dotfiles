@@ -133,3 +133,6 @@ prompt spaceship
 
 # fix Hyper first line precent % sign
 unsetopt PROMPT_SP
+
+# fix text paste on white background
+unset zle_bracketed_paste

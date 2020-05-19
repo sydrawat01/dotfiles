@@ -5,8 +5,6 @@ bold=$(tput bold)
 normal=$(tput sgr0)
 reset=`tput sgr0`
 
-# Install bare necessities
-
 ## Install cmd line tools IF not installed
 xcode-select -p 1>/dev/null
 
@@ -74,6 +72,15 @@ else
     echo No
 fi
 
+install '############# adding spaceship-prompt #############'
+npm i -g spaceship-prompt
+
+install '############# adding .zshrc for oh-my-zsh #############'
+cp ./runcom/.zshrc ~/
+
+install '############# adding .hyper.js config #############'
+cp ./configs/hyper/.hyper.js ~/
+
 ############# Robo-3T #############
 install "############# Robo-3T #############"
 echo -n "Do you wish to install Robo-3T (${bold}y${reset}/${bold}n${reset})? "
@@ -102,9 +109,9 @@ install '############# Installing VSCode Extensions #############'
 # these were extracted using: code --list-extensions > extensions.txt
 cat ./configs/vscode/extensions.txt | xargs -L 1 code --install-extension
 
-############# Android Studio #############
-install "############# Android Studio #############"
-echo -n "Do you wish to install Android Studio (${bold}y${reset}/${bold}n${reset})? "
+############# android studio #############
+install "############# android studio #############"
+echo -n "Do you wish to install android studio (${bold}y${reset}/${bold}n${reset})? "
 read androidstudio
 
 if [ "$androidstudio" != "${androidstudio#[Yy]}" ] ;then
@@ -114,9 +121,9 @@ else
     echo No
 fi
 
-############# Slack #############
-install "############# Slack #############"
-echo -n "Do you wish to install Slack (${bold}y${reset}/${bold}n${reset})? "
+############# slack #############
+install "############# slack #############"
+echo -n "Do you wish to install slack (${bold}y${reset}/${bold}n${reset})? "
 read slack
 
 if [ "$slack" != "${slack#[Yy]}" ] ;then
@@ -126,9 +133,9 @@ else
     echo No
 fi
 
-############# Bitwarden #############
-install "############# Bitwarden #############"
-echo -n "Do you wish to install Bitwarden (${bold}y${reset}/${bold}n${reset})? "
+############# bitwarden #############
+install "############# bitwarden #############"
+echo -n "Do you wish to install bitwarden (${bold}y${reset}/${bold}n${reset})? "
 read bitwarden
 
 if [ "$bitwarden" != "${bitwarden#[Yy]}" ] ;then
@@ -175,9 +182,9 @@ else
     echo No
 fi
 
-############# Python #############
-install "############# Python #############"
-echo -n "Do you wish to install Python (${bold}y${reset}/${bold}n${reset})? "
+############# python #############
+install "############# python #############"
+echo -n "Do you wish to install python (${bold}y${reset}/${bold}n${reset})? "
 read py
 
 if [ "$py" != "${py#[Yy]}" ] ;then
@@ -187,9 +194,9 @@ else
     echo No
 fi
 
-############# Transmission #############
-install "############# Transmission #############"
-echo -n "Do you wish to install Transmission (${bold}y${reset}/${bold}n${reset})? "
+############# transmission #############
+install "############# transmission #############"
+echo -n "Do you wish to install transmission (${bold}y${reset}/${bold}n${reset})? "
 read transmission
 
 if [ "$transmission" != "${transmission#[Yy]}" ] ;then
@@ -223,9 +230,9 @@ else
     echo No
 fi
 
-############# Sketch #############
-install "############# Sketch #############"
-echo -n "Do you wish to install Sketch (${bold}y${reset}/${bold}n${reset})? "
+############# sketch #############
+install "############# sketch #############"
+echo -n "Do you wish to install sketch (${bold}y${reset}/${bold}n${reset})? "
 read sktch
 
 if [ "$sktch" != "${sktch#[Yy]}" ] ;then
@@ -234,6 +241,21 @@ if [ "$sktch" != "${sktch#[Yy]}" ] ;then
 else
     echo No
 fi
+
+############# git #############
+install "############# git #############"
+echo -n "Do you wish to install git (${bold}y${reset}/${bold}n${reset})? "
+read git
+
+if [ "$git" != "${git#[Yy]}" ] ;then
+    echo Yes
+    brew install git
+else
+    echo No
+fi
+
+install '############# adding git config #############'
+cp ./git/.gitconfig ~/
 
 install "############# CLEANING HOMEBREW #############"
 brew cleanup

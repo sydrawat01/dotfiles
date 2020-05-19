@@ -1,3 +1,6 @@
+# These are for Linux, not for MacOS
+# For MacOS, refer .zprofile
+
 PATH=$PATH:/Users/sid/Documents/Software/mongodb/bin
 PS1="\h:\W \u\$"
 

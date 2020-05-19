@@ -29,7 +29,7 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 13,
+    fontSize: 12,
 
     // font family with optional fallbacks
     fontFamily: 'Dank Mono, Operator Mono Lig',
@@ -53,17 +53,17 @@ module.exports = {
     cursorAccentColor: accentColor,
 
     // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
-    cursorShape: 'UNDERLINE',
+    cursorShape: 'BLOCK',
 
     // set to `true` (without backticks and without quotes) for blinking cursor
-    cursorBlink: false,
+    cursorBlink: true,
 
     // color of the text
-    foregroundColor: 'rgb(192, 197, 206,1)',
+    foregroundColor: 'rgb(232, 235, 242,0.9)',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: 'rgba(40,44,52,1)',
+    backgroundColor: 'rgba(40,44,52,.5)',
 
     // terminal selection color
     selectionColor: 'rgba(164,205,255,0.3)',
@@ -85,14 +85,7 @@ module.exports = {
 
     // hyperline plugin custom config
     hyperline: {
-      plugins: [
-        "hostname",
-        "ip",
-        "memory",
-        "battery",
-        "cpu",
-        "network"
-      ]
+      plugins: ['hostname', 'ip', 'memory', 'battery', 'cpu', 'network'],
     },
 
     /* the full list. if you're going to provide the full color palette,
@@ -115,12 +108,11 @@ module.exports = {
       lightBlue,
       lightMagenta,
       lightCyan,
-      lightWhite
+      lightWhite,
     },
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-
     shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
@@ -165,9 +157,10 @@ module.exports = {
    *  `project#1.0.1`
    */
   plugins: [
-    "hyperline",
-    "hypercwd",
-    "hyper-tab-icons-plus",
+    'hyperline',
+    'hypercwd',
+    'hyper-tab-icons-plus',
+    'hyper-simple-vibrancy',
   ],
 
   // in development, you can create a directory under
@@ -179,5 +172,4 @@ module.exports = {
     // Example
     // 'window:devtools': 'cmd+alt+o',
   },
-
 };
