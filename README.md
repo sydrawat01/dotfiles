@@ -32,8 +32,8 @@ These are my dotfiles. Take anything you want, but at your own risk.
 │ ├── .zprofile
 │ ├── .zshrc
 │ └── material-theme.terminal
-├── snippets
-└── java.json
+└── snippets
+  └── java.json
 ```
 
 ## One script install
