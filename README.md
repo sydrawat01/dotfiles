@@ -17,12 +17,12 @@ These are my dotfiles. Take anything you want, but at your own risk.
 │ ├── vim
 │ │ └── .vimrc
 │ └── vscode
-│ ├── .babelrc
-│ ├── .eslintrc
-│ ├── .prettierrc
-│ ├── extensions.txt
-│ ├── java.json
-│ └── settings.json
+│   ├── .babelrc
+│   ├── .eslintrc
+│   ├── .prettierrc
+│   ├── extensions.txt
+│   ├── java.json
+│   └── settings.json
 ├── extras
 │ └── cmd-colors.sh
 ├── git
@@ -32,7 +32,7 @@ These are my dotfiles. Take anything you want, but at your own risk.
 │ ├── .zprofile
 │ ├── .zshrc
 │ └── material-theme.terminal
-└── snippets
+├── snippets
 └── java.json
 ```
 
