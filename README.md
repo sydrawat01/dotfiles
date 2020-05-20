@@ -22,18 +22,17 @@ These are my dotfiles. Take anything you want, but at your own risk.
 │   ├── .prettierrc
 │   ├── extensions.txt
 │   ├── java.json
+│   ├── keybindings.json
 │   └── settings.json
 ├── extras
 │ └── cmd-colors.sh
 ├── git
 │ └── .gitconfig
-├── runcom
-│ ├── .bash_profile
-│ ├── .zprofile
-│ ├── .zshrc
-│ └── material-theme.terminal
-└── snippets
-  └── java.json
+└── runcom
+  ├── .bash_profile
+  ├── .zprofile
+  ├── .zshrc
+  └── material-theme.terminal
 ```
 
 ## One script install

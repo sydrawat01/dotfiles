@@ -63,5 +63,29 @@
     "args": {
       "snippet": "'${1:${TM_SELECTED_TEXT}}'"
     }
+  },
+  {
+    "key": "shift+,",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorHasSelection",
+    "args": {
+      "snippet": "<${1:${TM_SELECTED_TEXT}}>"
+    }
+  },
+  {
+    "key": "shift+.",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorHasSelection",
+    "args": {
+      "snippet": "<${1:${TM_SELECTED_TEXT}}>"
+    }
+  },
+  {
+    "key": "shift+8",
+    "command": "editor.action.insertSnippet",
+    "when": "editorTextFocus && editorHasSelection",
+    "args": {
+      "snippet": "*${1:${TM_SELECTED_TEXT}}*"
+    }
   }
 ]
