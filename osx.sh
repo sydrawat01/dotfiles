@@ -24,7 +24,7 @@ fi
 
 ## Update homebrew
 printf "Updating homebrew...\nThis may take a while."
-# brew update
+brew update
 # brew upgrade
 
 
