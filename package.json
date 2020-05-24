@@ -1,0 +1,34 @@
+{
+  "name": "dotfiles",
+  "version": "1.0.1",
+  "description": "dotfiles for MacOS",
+  "main": "osx.sh",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sydrawat/dotfiles.git"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-emoji"
+    }
+  },
+  "keywords": [
+    "dotfiles",
+    "macos",
+    "sydrawat"
+  ],
+  "author": "Siddharth Rawat",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/sydrawat/dotfiles/issues"
+  },
+  "homepage": "https://github.com/sydrawat/dotfiles#readme",
+  "devDependencies": {
+    "commitizen": "^4.1.2",
+    "cz-emoji": "^1.2.1"
+  }
+}
