@@ -104,13 +104,6 @@ tabtitle_preexec() {
 [[ -z $preexec_functions ]] && preexec_functions=()
 preexec_functions=($preexec_functions tabtitle_preexec)
 
-# Deploy your code immediately
-deploy() {
-   git add .
-   git commit -m $1
-   git push
-}
-
 # Initial setup for React
 reactDev() {
    npm init -y
@@ -119,12 +112,20 @@ reactDev() {
 }
 # Install dependencies for eslint and prettier and initialize with min configs
 eslint() {
+   printf '### Installing eslint and prettier ###\n\n'
    npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node babel-eslint
    npx install-peerdeps --dev eslint-config-airbnb
    printf 'public\nstatic\n.cache\ncontent\n' > .eslintignore
    printf '.cache\npackage.json\npackage-lock.json\npublic\n' > .prettierignore
    printf '{\n  "printWidth": 100,\n  "semi": true,\n  "singleQuote": true,\n  "trailingComma": "all",\n  "bracketSpacing": true,\n  "arrowParens": "avoid"\n}' > .prettierrc
    printf '{\n  "extends": ["airbnb", "prettier"],\n  "plugins": ["prettier", "import", "react", "jsx-a11y"],\n  "env": {\n    "browser": true,\n    "node": true,\n    "es6": true\n  },\n  "rules": {\n    "node/no-unsupported-features/node-builtins": "off",\n    "no-param-reassign": "off",\n    "prettier/prettier": "error",\n    "no-unused-vars": "warn",\n    "no-console": "off",\n    "func-names": "off",\n    "no-process-exit": "off",\n    "object-shorthand": "off",\n    "class-methods-use-this": "off",\n    "no-shadow": "warn"\n  },\n  "parser": "babel-eslint",\n  "parserOptions": {\n    "sourceType": "module",\n    "allowImportExportEverywhere": true\n  }\n}' > .eslintrc
+}
+
+commitizen() {
+   printf '### Installing commitizen with emojis ###\n\n'
+   npm i -D commitizen cz-emoji
+   printf '\nAdd the following in package.json:\n"config": {\n  "commitizen": {\n    "path": "cz-emoji"\n  }\n}\n'
+   printf '\nUnder "scripts" in package.json, add:\n"commit": "git cz"\n'
 }
 
 # spaceship-prompt
