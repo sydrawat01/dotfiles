@@ -7,7 +7,10 @@ These are my dotfiles. Take anything you want, but at your own risk.
 ```markdown
 .
 ├── osx.sh
+├── .gitignore
 ├── LICENSE
+├── package-lock.json
+├── package.json
 ├── README.md
 ├── configs
 │ ├── hyper
