@@ -64,4 +64,4 @@ Then, run the file:
 - [zeit-hyper](https://github.com/zeit/hyper)
 - [cz-conventional-changelog](https://github.com/commitizen)
 - [commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
-- [cz-emoji] (<https://github.com/ngryman/cz-emoji)>
+- [cz-emoji](https://github.com/ngryman/cz-emoji)
