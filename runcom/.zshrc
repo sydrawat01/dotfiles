@@ -106,26 +106,31 @@ preexec_functions=($preexec_functions tabtitle_preexec)
 
 # Initial setup for React
 reactDev() {
-   npm init -y
-   npm i react react-dom styled-components
-   npm i -D @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin webpack webpack-cli webpack-dev-server
+   printf '### ⚛️ : react ###\n\n'
+   yarn init -y
+   yarn add react react-dom styled-components
+   yarn add -D @babel/core @babel/preset-env @babel/preset-react babel-loader html-webpack-plugin webpack webpack-cli webpack-dev-server
 }
 # Install dependencies for eslint and prettier and initialize with min configs
 eslint() {
-   printf '### Installing eslint and prettier ###\n\n'
-   npm i -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node babel-eslint
-   npx install-peerdeps --dev eslint-config-airbnb
+   printf '### 💅🏼 : eslint + prettier ###\n\n'
+   yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node babel-eslint
+   yarn add eslint-config-airbnb
    printf 'public\nstatic\n.cache\ncontent\n' > .eslintignore
    printf '.cache\npackage.json\npackage-lock.json\npublic\n' > .prettierignore
    printf '{\n  "printWidth": 100,\n  "semi": true,\n  "singleQuote": true,\n  "trailingComma": "all",\n  "bracketSpacing": true,\n  "arrowParens": "avoid"\n}' > .prettierrc
    printf '{\n  "extends": ["airbnb", "prettier"],\n  "plugins": ["prettier", "import", "react", "jsx-a11y"],\n  "env": {\n    "browser": true,\n    "node": true,\n    "es6": true\n  },\n  "rules": {\n    "node/no-unsupported-features/node-builtins": "off",\n    "no-param-reassign": "off",\n    "prettier/prettier": "error",\n    "no-unused-vars": "warn",\n    "no-console": "off",\n    "func-names": "off",\n    "no-process-exit": "off",\n    "object-shorthand": "off",\n    "class-methods-use-this": "off",\n    "no-shadow": "warn"\n  },\n  "parser": "babel-eslint",\n  "parserOptions": {\n    "sourceType": "module",\n    "allowImportExportEverywhere": true\n  }\n}' > .eslintrc
 }
-
+# cz-conventional-changelog for better commits
 commitizen() {
-   printf '### Installing commitizen with emojis ###\n\n'
-   npm i -D commitizen cz-emoji
+   printf '### 💾 : commitizen + emojis ###\n\n'
+   yarn add -D commitizen cz-emoji cz-conventional-changelog
    printf '\nAdd the following in package.json:\n"config": {\n  "commitizen": {\n    "path": "cz-emoji"\n  }\n}\n'
    printf '\nUnder "scripts" in package.json, add:\n"commit": "git cz"\n'
+   [ -d .git ] && echo .git || git init
+   printf '\n Adding ⚓️ to git commit...\n'
+   printf '#!/bin/bash\nexec < /dev/tty && node_modules/.bin/git-cz --hook || true' > .git/hooks/prepare-commit-msg
+   chmod 755 .git/hooks/prepare-commit-msg
 }
 
 # spaceship-prompt
