@@ -57,6 +57,18 @@ else
     echo No
 fi
 
+############# yarn #############
+install "############# yarn #############"
+echo -n "Do you wish to install yarn (${bold}y${reset}/${bold}n${reset})? "
+read yarn
+
+if [ "$yarn" != "${yarn#[Yy]}" ] ;then
+    echo Yes
+    brew install yarn
+else
+    echo No
+fi
+
 ############# Hyper Terminal + oh-my-zsh #############
 install "############# Hyper Terminal + oh-my-zsh #############"
 echo -n "Do you wish to install Hyper Terminal with oh-my-zsh(${bold}y${reset}/${bold}n${reset})? "
@@ -66,7 +78,6 @@ if [ "$hyperomz" != "${hyperomz#[Yy]}" ] ;then
     echo Yes
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     brew cask install hyper
-    cp ./configs/.hyper.js ~/
     cp ./runcom/.z* ~/
 else
     echo No
@@ -77,6 +88,9 @@ npm i -g spaceship-prompt
 
 install '############# adding .zshrc for oh-my-zsh #############'
 cp ./runcom/.zshrc ~/
+
+install '############# adding .zprofile for oh-my-zsh #############'
+cp ./runcom/.zprofile ~/
 
 install '############# adding .hyper.js config #############'
 cp ./configs/hyper/.hyper.js ~/
