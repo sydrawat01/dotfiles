@@ -30,6 +30,8 @@ These are my dotfiles. Take anything you want, but at your own risk.
 ├── extras
 │ └── cmd-colors.sh
 ├── git
+│ ├── hooks
+│ │ └── prepare-commit-message
 │ └── .gitconfig
 └── runcom
   ├── .bash_profile
