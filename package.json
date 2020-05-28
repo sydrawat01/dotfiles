@@ -1,16 +1,13 @@
 {
   "name": "dotfiles",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "dotfiles for MacOS",
   "main": "osx.sh",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "commit": "git cz"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sydrawat/dotfiles.git"
-  },
+  "repository": "git+https://github.com/sydrawat/dotfiles.git",
   "config": {
     "commitizen": {
       "path": "cz-emoji"
