@@ -14,6 +14,8 @@ These are my dotfiles. Take anything you want, but at your own risk.
 ├── README.md
 ├── configs
 │ ├── hyper
+│ │ ├── .hyper_plugins
+│ │ │ └── blur.js
 │ │ └── .hyper.js
 │ ├── npm
 │ │ └── .npmrc
