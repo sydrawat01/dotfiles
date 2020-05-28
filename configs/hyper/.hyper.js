@@ -88,6 +88,11 @@ module.exports = {
       plugins: ['hostname', 'ip', 'memory', 'battery', 'cpu', 'network'],
     },
 
+    // hyper current working directory
+    hypercwd: {
+      initialWorkingDirectory: '~/Documents/nerd-stuff/',
+    },
+
     /* the full list. if you're going to provide the full color palette,
      * including the 6 x 6 color cubes and the grayscale map, just provide
      * an array here instead of a color map object
