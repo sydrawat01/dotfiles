@@ -1,6 +1,6 @@
 {
   "name": "dotfiles",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "dotfiles for MacOS",
   "main": "osx.sh",
   "scripts": {
@@ -16,7 +16,8 @@
   "keywords": [
     "dotfiles",
     "macos",
-    "sydrawat"
+    "sydrawat",
+    ".files"
   ],
   "author": "Siddharth Rawat",
   "license": "GPL-3.0",
