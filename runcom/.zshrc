@@ -116,7 +116,8 @@ eslint() {
    printf '### 💅🏼 : eslint + prettier ###\n\n'
    yarn add -D eslint prettier eslint-plugin-prettier eslint-config-prettier eslint-plugin-node eslint-config-node babel-eslint
    # yarn add -D eslint eslint-plugin-import eslint-plugin-react eslint-plugin-react-hooks eslint-plugin-jsx-a11y
-   npx install-peerdeeps -D eslint-config-airbnb
+   # npx install-peerdeeps -D eslint-config-airbnb
+   printf '\nPlease run the following command to install eslint-config-airbnb peerdeps:\n\tnpx install-peerdeeps -D eslint-config-airbnb\n'
    printf 'public\nstatic\n.cache\ncontent\n' > .eslintignore
    printf '.cache\npackage.json\npackage-lock.json\npublic\n' > .prettierignore
    printf '{\n  "printWidth": 100,\n  "semi": true,\n  "singleQuote": true,\n  "trailingComma": "all",\n  "bracketSpacing": true,\n  "arrowParens": "avoid"\n}' > .prettierrc
