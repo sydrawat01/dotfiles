@@ -80,7 +80,7 @@ Here are the apps that will be installed using this script:
   <img alt="transmission" src="https://icons.iconarchive.com/icons/sbstnblnd/plateau/512/Apps-transmission-icon.png" width="40" title="Transmission" />
   <img alt="youtube-dl" src="https://upload.wikimedia.org/wikipedia/commons/7/75/YouTube_social_white_squircle_%282017%29.svg" width="40" title="Youtube-dl" />
   <img alt="sketch" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Sketch_Logo.svg" width="40" title="Sketch" />
-  <img alt="watchman" src="https://facebook.github.io/watchman/img/logo.png" width="40" title="watchman" />
+  <img alt="watchman" src="https://raw.githubusercontent.com/facebook/watchman/master/website/static/logo.png" width="40" title="watchman" />
   <img alt="homebrew" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Homebrew_logo.svg" width="40" height="40"  title="Homebrew" />
 </p>
 
