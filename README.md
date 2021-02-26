@@ -59,7 +59,7 @@ Then, run the file:
 `./osx.sh`
 
 All your dev needs installed in one go!
-
+<!---
 Here are the apps that will be installed using this script:
 
 <p align="left">
@@ -83,7 +83,7 @@ Here are the apps that will be installed using this script:
   <img alt="watchman" src="https://raw.githubusercontent.com/facebook/watchman/master/website/static/logo.png" width="40" title="watchman" />
   <img alt="homebrew" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Homebrew_logo.svg" width="40" height="40"  title="Homebrew" />
 </p>
-
+-->
 
 ## Additional resources
 
