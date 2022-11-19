@@ -34,6 +34,7 @@ These are my dotfiles. Take anything you want, but at your own risk.
 ├── git
 │ ├── hooks
 │ │ └── prepare-commit-message
+│ ├── .gitmessage
 │ └── .gitconfig
 └── runcom
   ├── .bash_profile
