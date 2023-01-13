@@ -1,7 +1,11 @@
 [user]
-	name = Siddharth Rawat
-	email = siddharth.rawat94@gmail.com
+name = Siddharth Rawat
+email = rawat.sid@northeastern.edu
 [core]
-	editor = code --wait
+editor = code -w
 [credential]
-	helper = osxkeychain
+helper = osxkeychain
+[init]
+defaultBranch = main
+[commit]
+template = /Users/sid/.gitmessage

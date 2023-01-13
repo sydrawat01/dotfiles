@@ -1,9 +1,10 @@
 #!/bin/bash
 # Show available terminal colours.
+# Runs best on Hyper Terminal
 # Heavily modified version of the TLDP script here:
 # http://tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
 
-print_colors(){
+print_colors() {
   echo
   # Print rows.
   for bold in ${bolds[@]}; do
@@ -11,7 +12,7 @@ print_colors(){
       # Print cells.
       for bg in ${bgs[@]}; do
         # Print cell.
-        printf "\e[%s;%s;%sm%s       \e[0m \e        " $bold $fg $bg "  "
+        printf "\e[%s;%s;%sm%s       \e[0m \e        " "$bold" "$fg" "$bg" "  "
       done
       echo
     done
@@ -19,7 +20,7 @@ print_colors(){
 }
 
 # Print standard colors.
-bolds=( 0 1 )
-fgs=( 3{5..7} )
-bgs=( 4{0..8} )
+bolds=(0 1)
+fgs=(3{5..7})
+bgs=(4{0..8})
 print_colors

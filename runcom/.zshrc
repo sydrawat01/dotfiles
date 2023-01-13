@@ -1,3 +1,5 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -140,7 +142,13 @@ autoload -U promptinit; promptinit
 prompt spaceship
 
 # fix Hyper first line precent % sign
-unsetopt PROMPT_SP
+#unsetopt PROMPT_SP
 
 # fix text paste on white background
 unset zle_bracketed_paste
+
+
+autoload -U +X bashcompinit && bashcompinit
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

@@ -1,278 +1,418 @@
 #!/bin/bash
+############################################################################################
+##                                      osx.sh                                            ##
+##                              Author: Siddharth Rawat                                   ##
+##                             Copyright 2022 sydrawat01                                  ##
+##                                                                                        ##
+## 1. Upgrade the OS packages.                                                            ##
+## 2. Install all the application prerequisites, middleware, and runtime.                 ##
+## 3. Install PostgreSQL and setup the database.                                          ##
+## 4. Update permission and file ownership on the copied application artifacts.           ##
+## 5. Start the REST API service                                                          ##
+############################################################################################
 
-start=`date +%s`
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                           INSTALL SCRIPT v2.0                                                           |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+start=$(date +%s)
 bold=$(tput bold)
-normal=$(tput sgr0)
-reset=`tput sgr0`
+reset=$(tput sgr0)
+USER=$(whoami)
 
-## Install cmd line tools IF not installed
+sleep 2
+
+# Install cmd line tools IF not installed
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                         Setting up XCode tools                                                          |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 xcode-select -p 1>/dev/null
-
-if [ $? -eq 0 ]
-then
-  printf 'Command line developer tools are already installed.\nSkipping...\n\n'
+XCODE=$?
+if [ $XCODE -eq 0 ]; then
+    printf '⏭ Command line developer tools are already installed.\nSkipping...\n\n'
 else
-  printf 'Installing XCode command line developer tools...\nThis may take a while.'
-  xcode-select --install
+    printf ' 📦 Installing XCode command line developer tools...\nThis may take a while.\n'
+    xcode-select --install
+    INSTALL=$?
+    if [ $INSTALL -eq 0 ]; then
+        printf '✨ XCode developer tools installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing XCode developer tools.\n'
+    fi
 fi
 
-## Install homebrew IF not installed
-if test ! $(which brew); then
-  printf 'Installing homebrew...\n'
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-fi
-
-## Update homebrew
-printf "Updating homebrew...\nThis may take a while."
-brew update
-# brew upgrade
-
-
-install() {
-  echo
-  echo "${bold}$1${normal}"
-}
-
-############# Firefox Developer Edition #############
-install "############# Firefox Developer Edition #############"
-echo -n "Do you wish to install Firefox Developer Edition (${bold}y${reset}/${bold}n${reset})? "
-read firefox
-
-if [ "$firefox" != "${firefox#[Yy]}" ] ;then
-    echo Yes
-    brew cask install firefox-developer-edition
+# Install homebrew IF not installed
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                          Installing homebrew                                                            |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+BREW=$(which brew)
+BREW=$?
+if [ $BREW -eq 0 ]; then
+    printf '⏭ Homebrew is already installed.\nSkipping...\n\n'
 else
-    echo No
+    printf '📦 Installing homebrew...\n'
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    BREW=$?
+    if [ $BREW -eq 0 ]; then
+        printf '✨ Homebrew installed successfully!\n'
+        printf '⚙️  Configuring homebrew on your Mac...\n'
+        echo '# Set PATH, MANPATH, etc. for Homebrew.' >>/Users/"$USER"/.zprofile
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>/Users/"$USER"/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+        source /Users/"$USER"/.zprofile
+        BREW="$(brew -v)"
+        BREW=$?
+        if [ $BREW -eq 0 ]; then
+            printf "⚙️  Updating homebrew...\nThis may take a while.\n"
+            brew update
+            printf '✔  Done.\n'
+        else
+            printf '💩 Oops! Could not find the binaries linked to Homebrew. Try restaring your terminal.\n'
+        fi
+    else
+        printf '💩 Oops! Something went wrong while installing Homebrew.\n'
+    fi
 fi
 
-############# Node.js + NPM #############
-install "############# Node.js + NPM #############"
-echo -n "Do you wish to install Node.js (${bold}y${reset}/${bold}n${reset})? "
-read nodejs
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                         Firefox Developer Ed.                                                           |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Firefox Developer Edition (${bold}y${reset}/${bold}n${reset})? "
+read -r firefox
 
-if [ "$nodejs" != "${nodejs#[Yy]}" ] ;then
-    echo Yes
-    brew install node
+if [ "$firefox" != "${firefox#[Yy]}" ]; then
+    printf '📦 Installing Firefox Developer Edition...\n'
+    brew install --cask homebrew/cask-versions/firefox-developer-edition
+    FIREFOX=$?
+    if [ $FIREFOX -eq 0 ]; then
+        printf '✨ Firefox Developer Edition installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Firefox Developer Edition.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# yarn #############
-install "############# yarn #############"
-echo -n "Do you wish to install yarn (${bold}y${reset}/${bold}n${reset})? "
-read yarn
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                      Google Chrome Developer Ed.                                                        |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Google Chrome Developer Edition (${bold}y${reset}/${bold}n${reset})? "
+read -r chrome
 
-if [ "$yarn" != "${yarn#[Yy]}" ] ;then
-    echo Yes
+if [ "$chrome" != "${chrome#[Yy]}" ]; then
+    printf '📦 Installing Google Chrome Developer Edition...\n'
+    brew install --cask homebrew/cask-versions/google-chrome-dev
+    CHROME=$?
+    if [ $CHROME -eq 0 ]; then
+        printf '✨ Google Chrome Developer Edition installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Google Chrome Developer Edition.\n'
+    fi
+else
+    printf '\n⏭ Skipping...\n\n'
+fi
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                           NVM, NodeJS & NPM                                                             |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Node Version Manager (${bold}y${reset}/${bold}n${reset})? "
+read -r node
+
+if [ "$node" != "${node#[Yy]}" ]; then
+    printf '📦 Installing Node Version Manager...\n'
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+    NVM=$?
+    if [ $NVM -eq 0 ]; then
+        printf '✨ Node Version Manager installed successfully!\n'
+        source ~/.zshrc
+        NVM=$(command -v nvm)
+        NVM=$?
+        if [ $NVM -eq 0 ]; then
+            printf '⚙️  Configuring NodeJS & NPM on your Mac...\n'
+            echo -n "👾 Do you wish to install the LTS version of NodeJS (${bold}y${reset}/${bold}n${reset})? "
+            read -r version
+            if [ "$version" != "${version#[Yy]}" ]; then
+                printf '📦 Installing LTS version of NodeJS...\n'
+                nvm install --lts
+                printf "⚙️  Configuring NodeJS...\n."
+                nvm use --lts
+                echo "node $(node --version)"
+                echo "npm $(npm --version)"
+                printf '✔  Done.\n'
+            else
+                printf '📦 Installing LTS version of NodeJS...\n'
+                nvm install node
+                printf "⚙️  Configuring NodeJS...\n."
+                nvm use node
+                echo "node $(node --version)"
+                echo "npm $(npm --version)"
+                printf '✔  Done.\n'
+            fi
+        else
+            printf '💩 Oops! Could not find the binaries linked to NVM. Try restarting your terminal.\n'
+        fi
+    else
+        printf '💩 Oops! Something went wrong while installing Node Version Manager.\n'
+    fi
+else
+    printf '\n⏭ Skipping...\n\n'
+fi
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                         Yarn Package Manager                                                            |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Yarn Package Manager (${bold}y${reset}/${bold}n${reset})? "
+read -r yarn
+
+if [ "$yarn" != "${yarn#[Yy]}" ]; then
+    printf '📦 Installing Yarn Package Manager...\n'
     brew install yarn
+    YARN=$?
+    if [ $YARN -eq 0 ]; then
+        printf '✨ Node Version Manager installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Yarn Package Manager.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# Hyper Terminal + oh-my-zsh #############
-install "############# Hyper Terminal + oh-my-zsh #############"
-echo -n "Do you wish to install Hyper Terminal with oh-my-zsh(${bold}y${reset}/${bold}n${reset})? "
-read hyperomz
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                               Postman                                                                   |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Postman (${bold}y${reset}/${bold}n${reset})? "
+read -r postman
 
-if [ "$hyperomz" != "${hyperomz#[Yy]}" ] ;then
-    echo Yes
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-    brew cask install hyper
-    cp ./runcom/.z* ~/
+if [ "$postman" != "${postman#[Yy]}" ]; then
+    printf '📦 Installing Postman...\n'
+    brew install --cask postman
+    POSTMAN=$?
+    if [ $POSTMAN -eq 0 ]; then
+        printf '✨ Postman installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Postman.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-install '############# adding spaceship-prompt #############'
-npm i -g spaceship-prompt
-
-install '############# adding .zshrc for oh-my-zsh #############'
-cp ./runcom/.zshrc ~/
-
-install '############# adding .zprofile for oh-my-zsh #############'
-cp ./runcom/.zprofile ~/
-
-install '############# adding .hyper.js config #############'
-cp ./configs/hyper/.hyper.js ~/
-
-############# Robo-3T #############
-install "############# Robo-3T #############"
-echo -n "Do you wish to install Robo-3T (${bold}y${reset}/${bold}n${reset})? "
-read robo3t
-
-if [ "$robo3t" != "${robo3t#[Yy]}" ] ;then
-    echo Yes
-    brew cask install robo-3t
-else
-    echo No
-fi
-
-############# VSCode #############
-install "############# VSCode #############"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                                VSCode                                                                   |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 echo -n "Do you wish to install VSCode (${bold}y${reset}/${bold}n${reset})? "
-read vscode
+read -r vscode
 
-if [ "$vscode" != "${vscode#[Yy]}" ] ;then
-    echo Yes
-    brew cask install visual-studio-code
+if [ "$vscode" != "${vscode#[Yy]}" ]; then
+    printf '📦 Installing VSCode...\n'
+    brew install --cask visual-studio-code
+    VSC=$?
+    if [ $VSC -eq 0 ]; then
+        printf '✨ VSCode installed successfully!\n'
+        printf "⚙️  Configuring VSCode...\n."
+        cat ./configs/vscode/extensions.txt | xargs -L 1 code --install-extension
+        VSC=$?
+        if [ $VSC -eq 0 ]; then
+            cp ./configs/vscode/settings.json "$HOME"/Library/Application\ Support/Code/User/
+            VSC=$?
+            if [ $VSC -eq 0 ]; then
+                printf '✔  Done.\n'
+            else
+                printf '💩 Oops! Couldn'\''t configure VSCode settings.\nTry manually copy the settings.json file from configs/vscode folder?\n'
+            fi
+        else
+            printf '💩 Oops! Something went wrong while installing VSCode extensions.\n'
+        fi
+    else
+        printf '💩 Oops! Something went wrong while installing VSCode.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-install '############# Installing VSCode Extensions #############'
-# these were extracted using: code --list-extensions > extensions.txt
-cat ./configs/vscode/extensions.txt | xargs -L 1 code --install-extension
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                              Oh-My-Zsh                                                                  |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install oh-my-zsh(${bold}y${reset}/${bold}n${reset})? "
+read -r omz
 
-############# android studio #############
-install "############# android studio #############"
-echo -n "Do you wish to install android studio (${bold}y${reset}/${bold}n${reset})? "
-read androidstudio
-
-if [ "$androidstudio" != "${androidstudio#[Yy]}" ] ;then
-    echo Yes
-    brew cask install android-studio
+if [ "$omz" != "${omz#[Yy]}" ]; then
+    printf '📦 Installing oh-my-zsh...\n'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    OMZ=$?
+    if [ $OMZ -eq 0 ]; then
+        printf '✨ oh-my-zsh installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing oh-my-zsh.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# slack #############
-install "############# slack #############"
-echo -n "Do you wish to install slack (${bold}y${reset}/${bold}n${reset})? "
-read slack
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                            Hyper Terminal                                                               |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Hyper(${bold}y${reset}/${bold}n${reset})? "
+read -r hyper
 
-if [ "$slack" != "${slack#[Yy]}" ] ;then
-    echo Yes
-    brew cask install slack
+if [ "$hyper" != "${hyper#[Yy]}" ]; then
+    printf '📦 Installing Hyper...\n'
+    brew install --cask hyper
+    HYPER=$?
+    if [ $HYPER -eq 0 ]; then
+        printf '✨ Hyper installed successfully!\n'
+        printf "⚙️  Configuring Hyper Terminal...\n."
+        cp ./configs/hyper/.hyper.js ~/
+    else
+        printf '💩 Oops! Something went wrong while installing Hyper.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# bitwarden #############
-install "############# bitwarden #############"
-echo -n "Do you wish to install bitwarden (${bold}y${reset}/${bold}n${reset})? "
-read bitwarden
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                                Slack                                                                    |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Slack (${bold}y${reset}/${bold}n${reset})? "
+read -r slack
 
-if [ "$bitwarden" != "${bitwarden#[Yy]}" ] ;then
-    echo Yes
-    brew cask install bitwarden
+if [ "$slack" != "${slack#[Yy]}" ]; then
+    printf '📦 Installing Slack...\n'
+    brew install --cask slack
+    SLACK=$?
+    if [ $SLACK -eq 0 ]; then
+        printf '✨ Slack installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Slack.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# YACReader #############
-install "############# YACReader #############"
-echo -n "Do you wish to install YACReader (${bold}y${reset}/${bold}n${reset})? "
-read yacr
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                                 Zoom                                                                    |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Zoom (${bold}y${reset}/${bold}n${reset})? "
+read -r zoom
 
-if [ "$yacr" != "${yacr#[Yy]}" ] ;then
-    echo Yes
-    brew cask install yacreader
+if [ "$zoom" != "${zoom#[Yy]}" ]; then
+    printf '📦 Installing Zoom...\n'
+    brew install --cask zoom
+    ZOOM=$?
+    if [ $ZOOM -eq 0 ]; then
+        printf '✨ Zoom installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Zoom.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# IINA Player #############
-install "############# IINA Player #############"
-echo -n "Do you wish to install IINA Player (${bold}y${reset}/${bold}n${reset})? "
-read iina
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                              Bitwarden                                                                  |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install Bitwarden (${bold}y${reset}/${bold}n${reset})? "
+read -r bitwarden
 
-if [ "$iina" != "${iina#[Yy]}" ] ;then
-    echo Yes
-    brew cask install iina
+if [ "$bitwarden" != "${bitwarden#[Yy]}" ]; then
+    printf '📦 Installing Bitwarden...\n'
+    brew install --cask bitwarden
+    BIT=$?
+    if [ $BIT -eq 0 ]; then
+        printf '✨ Bitwarden installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing Bitwarden.\n'
+    fi
 else
-    echo No
+    printf '\n⏭ Skipping...\n\n'
 fi
 
-############# MongoDB Community Ed. #############
-install "############# MongoDB Community Ed. #############"
-echo -n "Do you wish to install MongoDB Community Edition (${bold}y${reset}/${bold}n${reset})? "
-read mongo
-
-if [ "$mongo" != "${mongo#[Yy]}" ] ;then
-    echo Yes
-    brew tap mongodb/brew
-    brew install mongodb-community
-else
-    echo No
-fi
-
-############# python #############
-install "############# python #############"
-echo -n "Do you wish to install python (${bold}y${reset}/${bold}n${reset})? "
-read py
-
-if [ "$py" != "${py#[Yy]}" ] ;then
-    echo Yes
-    brew install python
-else
-    echo No
-fi
-
-############# transmission #############
-install "############# transmission #############"
-echo -n "Do you wish to install transmission (${bold}y${reset}/${bold}n${reset})? "
-read transmission
-
-if [ "$transmission" != "${transmission#[Yy]}" ] ;then
-    echo Yes
-    brew install transmission
-else
-    echo No
-fi
-
-############# watchman #############
-install "############# watchman #############"
-echo -n "Do you wish to install watchman (${bold}y${reset}/${bold}n${reset})? "
-read watchman
-
-if [ "$watchman" != "${watchman#[Yy]}" ] ;then
-    echo Yes
-    brew install watchman
-else
-    echo No
-fi
-
-############# youtube-dl #############
-install "############# youtube-dl #############"
-echo -n "Do you wish to install youtube-dl (${bold}y${reset}/${bold}n${reset})? "
-read ydl
-
-if [ "$ydl" != "${ydl#[Yy]}" ] ;then
-    echo Yes
-    brew install youtube-dl
-else
-    echo No
-fi
-
-############# sketch #############
-install "############# sketch #############"
-echo -n "Do you wish to install sketch (${bold}y${reset}/${bold}n${reset})? "
-read sktch
-
-if [ "$sktch" != "${sktch#[Yy]}" ] ;then
-    echo Yes
-    brew cask install sketch
-else
-    echo No
-fi
-
-############# git #############
-install "############# git #############"
-echo -n "Do you wish to install git (${bold}y${reset}/${bold}n${reset})? "
-read git
-
-if [ "$git" != "${git#[Yy]}" ] ;then
-    echo Yes
-    brew install git
-else
-    echo No
-fi
-
-install '############# adding git config #############'
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                      Miscellaneous Configurations                                                       |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+printf "⚙️  Configuring git VCS...\n."
 cp ./git/.gitconfig ~/
+GIT=$?
+if [ $GIT -eq 0 ]; then
+    cp ./git/.gitmessage ~/
+    GIT=$?
+    if [ $GIT -eq 0 ]; then
+        printf '✔  Git configuration done.\n'
+        printf '🔑 To setup SSH keys for GitHub, refer here: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh \n'
+        printf '🔐 Remember to enable 2FA to keep your accounts secure!\n'
+    fi
+else
+    printf '❌  Error occurred while configuring git VCS\n'
+fi
 
-install "############# CLEANING HOMEBREW #############"
+printf "⚙️  Configuring Vim...\n."
+cp ./configs/vim/.vimrc ~/
+VIM=$?
+if [ $VIM -eq 0 ]; then
+    printf '✔  Vim configuration done.\n'
+else
+    printf '❌  Error occurred while configuring Vim\n'
+fi
+
+printf "⚙️  Configuring Dracula Terminal theme...\n."
+brew tap dracula/install
+TERM=$?
+if [ $TERM -eq 0 ]; then
+    brew install --cask dracula-terminal
+    TERM=$?
+    if [ $TERM -eq 0 ]; then
+        printf '✔  Dracula theme successfully installed.\n'
+        printf 'Don'\''t forget to open the terminal app settings to set the dracula theme as the default theme!\n'
+        printf 'Also while we have you here, a good window size is 140x40 with Roboto Mono Light for Powerline font, size 12\n'
+    fi
+else
+    printf '❌  Error occurred while configuring Dracula Terminal theme\n'
+fi
+
+printf '⚠️  Please note /runcom settings are not being installed, as they might differ.\n'
+printf 'The settings for sydrawat01/dotfiles depends on another package called '\''fig'\''\n'
+printf 'Make changes to these files at your own risk!\n'
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                     Performing Homebrew Cleanup                                                         |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 brew cleanup
+BRWCLNP=$?
+if [ $BRWCLNP -eq 0 ]; then
+    printf '✔  Cleanup complete.\n'
+else
+    printf '❌  Error occurred while performing brew cleanup\n'
+fi
 
-runtime=$((($(date +%s)-$start)/60))
-install "############# Total Setup Time ############# $runtime Minutes"
+runtime=$((($(date +%s) - start) / 60))
+printf 'Setup completed in %s minutes\n' "$runtime"

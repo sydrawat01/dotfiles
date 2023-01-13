@@ -3,22 +3,39 @@
 // See https://hyper.is#cfg for all currently supported options.
 
 // standard ANSI Colors
-const black = '#2b303b';
-const red = '#bf616a';
-const green = '#a3be8c';
-const yellow = '#ebcb8b';
-const blue = '#8fa1b3';
-const magenta = '#b48ead';
-const cyan = '#96b5b4';
-const white = '#c0c5ce';
-const lightBlack = '#616775';
-const lightRed = '#ea919a';
-const lightGreen = '#d0edb6';
-const lightYellow = '#f9dea7';
-const lightBlue = '#b4cee8';
-const lightMagenta = '#eabee2';
-const lightCyan = '#c3e5e4';
-const lightWhite = '#e1e8f4';
+// const black = '#2b303b';
+// const red = '#bf616a';
+// const green = '#a3be8c';
+// const yellow = '#ebcb8b';
+// const blue = '#8fa1b3';
+// const magenta = '#b48ead';
+// const cyan = '#96b5b4';
+// const white = '#c0c5ce';
+// const lightBlack = '#616775';
+// const lightRed = '#ea919a';
+// const lightGreen = '#d0edb6';
+// const lightYellow = '#f9dea7';
+// const lightBlue = '#b4cee8';
+// const lightMagenta = '#eabee2';
+// const lightCyan = '#c3e5e4';
+// const lightWhite = '#e1e8f4';
+
+const black = '#21222C';
+const red = '#FF5555';
+const green = '#50FA7B';
+const yellow = '#f9dea7';
+const blue = '#BD93F9';
+const magenta = '#FF79C6';
+const cyan = '#8BE9FD';
+const white = '#F8F8F2';
+const lightBlack = '#6272A4';
+const lightRed = '#FF6E6E';
+const lightGreen = '#69FF94';
+const lightYellow = '#FFFFA5';
+const lightBlue = '#D6ACFF';
+const lightMagenta = '#FF92DF';
+const lightCyan = '#A4FFFF';
+const lightWhite = '#ffffff';
 
 const accentColor = blue;
 
@@ -29,13 +46,13 @@ module.exports = {
     updateChannel: 'stable',
 
     // default font size in pixels for all tabs
-    fontSize: 12,
+    fontSize: 12.3,
 
     // font family with optional fallbacks
-    fontFamily: 'Dank Mono, Operator Mono Lig',
+    fontFamily: 'Roboto Mono Light for Powerline, Operator Mono Lig, Dank Mono',
 
     // default font weight: 'normal' or 'bold'
-    fontWeight: 'normal',
+    fontWeight: 'bold',
 
     // font weight for bold characters: 'normal' or 'bold'
     fontWeightBold: 'bold',
@@ -59,11 +76,11 @@ module.exports = {
     cursorBlink: true,
 
     // color of the text
-    foregroundColor: 'rgb(232, 235, 242,0.9)',
+    foregroundColor: 'rgb(232, 235, 242, 0.9)',
 
     // terminal background color
     // opacity is only supported on macOS
-    backgroundColor: 'rgba(40,44,52,.5)',
+    backgroundColor: 'rgba(40,44,52,1)',
 
     // terminal selection color
     selectionColor: 'rgba(164,205,255,0.3)',
@@ -72,7 +89,7 @@ module.exports = {
     borderColor: 'rgba(255,255,255, 0.2)',
 
     // size of window by pixels (width, height)
-    windowSize: [810, 750],
+    windowSize: [1000, 700],
 
     // custom CSS to embed in the main window
     css: '',
@@ -90,7 +107,7 @@ module.exports = {
 
     // hyper current working directory
     hypercwd: {
-      initialWorkingDirectory: '~/Documents/nerd-stuff/',
+      initialWorkingDirectory: '~/',
     },
 
     /* the full list. if you're going to provide the full color palette,
@@ -118,7 +135,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: '',
+    shell: '/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -162,16 +179,18 @@ module.exports = {
    *  `project#1.0.1`
    */
   plugins: [
-    'hyperline',
+    // 'hyperline',
     'hypercwd',
     'hyper-tab-icons-plus',
-    'hyper-simple-vibrancy',
+    // 'hyper-dracula',
+    // '',
+    // 'hyper-dracula',
   ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
   // to load it and avoid it being `npm install`ed
-  localPlugins: [],
+  localPlugins: ['fig-hyper-integration'],
 
   keymaps: {
     // Example
