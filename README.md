@@ -1,15 +1,36 @@
 # .files
 
-These are my dotfiles. Take anything you want, but at your own risk.
+A simple way to setup a new MacOS laptop/desktop for development, using just one command.
 
-## Folder structure
+> NOTE: This repository contains sysconfigs for my personal computer, if you use anything from the `runcom/` folder, please use it at your own risk!
+
+## :floppy_disk: Softwares
+
+This script installs the basic software tools for developer requirements. Although this list is exhaustive, it does not end here. I am open to suggestions and PRs that will help expand this utility!
+
+- [x] XCode developer tools
+- [x] Homebrew
+- [x] Firefox developer Ed
+- [x] Google Chrome developer Ed
+- [x] Node Version Manager
+- [x] NodeJS & NPM
+- [x] Yarn
+- [x] Postman
+- [x] VSCode
+- [x] Oh-My-Zsh
+- [x] Hyper Terminal
+- [x] Slack
+- [x] Zoom
+- [x] Bitwarden
+
+## :open_file_folder: Folder structure
 
 ```markdown
 .
 ├── osx.sh
 ├── .gitignore
 ├── LICENSE
-├── package-lock.json
+├── yarn.lock
 ├── package.json
 ├── README.md
 ├── configs
@@ -40,24 +61,39 @@ These are my dotfiles. Take anything you want, but at your own risk.
   ├── .bash_profile
   ├── .zprofile
   ├── .zshrc
+  ├── Dracula.terminal
   └── material-theme.terminal
 ```
 
-## One script install
+## :arrow_down: One script install
+
+To install, copy the below command and paste it in your terminal:
+
+```shell
+/bin/bash -c "$(curl -fsSL https://raw/githubusercontent.com/sydrawat01/dotfiles/master/osx.sh)"
+```
+
+## :octocat: Clone and setup
 
 Clone this repository in your desired path using:
 
-`git clone https://github.com/sydrawat/dotfiles.git`
+```shell
+git clone https://github.com/sydrawat/dotfiles.git
+```
 
 To run the script to install all basic software with personal configs on your Mac, use this shell script: `osx.sh`.
 
-Before you can use it, provide exec permissions to this file:
+Although not required, provide exec permissions to this file, just to avoid any problems executing the shell script:
 
-`chmod +x osx.sh`
+```shell
+chmod +x osx.sh
+```
 
 Then, run the file:
 
-`./osx.sh`
+```shell
+./osx.sh
+```
 
 All your dev needs installed in one go!
 <!---
@@ -86,7 +122,7 @@ Here are the apps that will be installed using this script:
 </p>
 -->
 
-## Additional resources
+## :spiral_notepad: Additional resources/references
 
 - [Awesome Dotfiles](https://github.com/webpro/awesome-dotfiles)
 - [Homebrew](https://brew.sh)
@@ -97,3 +133,13 @@ Here are the apps that will be installed using this script:
 - [cz-conventional-changelog](https://github.com/commitizen)
 - [commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
 - [cz-emoji](https://github.com/ngryman/cz-emoji)
+- [Dracula Terminal](https://draculatheme.com/terminal)
+- [Material Theme](https://gist.github.com/mvaneijgen/4c56701215847dd5ddcf)
+
+## :ninja: Author
+
+[Siddharth Rawat](mailto:sydrawat@gmail.com)
+
+## :scroll: License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)

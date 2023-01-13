@@ -8,16 +8,17 @@
     "suppressFileNotUnderSourceControlWarning": false,
     "suppressGitVersionWarning": false,
     "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressResultsExplorerNotice": false,
-    "suppressShowKeyBindingsNotice": true
+    "suppressNoRepositoryWarning": false
+    // "suppressResultsExplorerNotice": false,
+    // "suppressShowKeyBindingsNotice": true
   },
   "liveServer.settings.donotShowInfoMsg": true,
   "emmet.includeLanguages": {
     "javascript": "javascriptreact"
   },
   "emmet.syntaxProfiles": {
-    "javascript": "jsx"
+    "javascript": "jsx",
+    "typescript": "tsx"
   },
   // * --- seperator here ---
   "extensions.ignoreRecommendations": false,
@@ -34,6 +35,22 @@
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[javascriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css, scss]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
   // "[javascriptreact]": {
   //   "editor.formatOnSave": false
   // },
@@ -46,8 +63,7 @@
   //   "javascript",
   //   "javascriptreact"
   // ],
-  "editor.fontFamily": "Dank Mono, Operator Mono Lig, Dank Mono, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontSize": 13.5,
+  "editor.fontFamily": "Operator Mono Lig, Victor Mono , Dank Mono, Operator Mono, Menlo, Monaco, 'Courier New', monospace",
   "editor.lineHeight": 25,
   "workbench.startupEditor": "none",
   "workbench.iconTheme": "material-icon-theme",
@@ -110,7 +126,7 @@
   },
   "gitlens.blame.highlight.locations": ["gutter", "line", "overview"],
   "gitlens.blame.separateLines": false,
-  "markdown.preview.fontFamily": "Dank Mono, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+  "markdown.preview.fontFamily": "Operator Mono Lig, Dank Mono, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
   "explorer.compactFolders": false,
   // For which languages indent-rainbow should be activated (if empty it means all).
   "indentRainbow.includedLanguages": ["nim", "javascript", "nims", "python"],
@@ -123,16 +139,88 @@
   "editor.tabSize": 2,
   "eslint.alwaysShowStatus": true,
   "eslint.options": {
-    "extensions":[".js",".jsx",".ts",".tsx",".md",".mdx"]
+    "extensions": [".js", ".jsx", ".ts", ".tsx", ".md"]
   },
-  "eslint.validate": [
-    "markdown",
-    "md",
-    "mdx"
-  ],
+  // "eslint.validate": [
+  //   "markdown",
+  // ],
   "material-icon-theme.activeIconPack": "react_redux",
   "material-icon-theme.files.associations": {
     "*.markdownlintignore": ".markdownlintignore",
     ".markdownlintignore": "json"
-  }
+  },
+  "editor.fontSize": 13.5,
+  "editor.fontWeight": "100",
+  "terminal.integrated.fontWeight": "100",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "liveshare.authenticationProvider": "GitHub",
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.formatOnSave": true,
+  "sass.lint.enable": true,
+  "scss.lint.duplicateProperties": "warning",
+  "less.lint.duplicateProperties": "warning",
+  "scss.lint.hexColorLength": "warning",
+  "workbench.preferredDarkColorTheme": "One Dark Pro",
+  "oneDarkPro.editorTheme": "One Dark Pro",
+  "indentRainbow.colorOnWhiteSpaceOnly": true,
+  "bracketPairColorizer.depreciation-notice": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "reactSnippets.settings.singleQuote": false,
+  "explorer.confirmDragAndDrop": false,
+  "redhat.telemetry.enabled": false,
+  "terminal.integrated.env.osx": {
+    "FIG_NEW_SESSION": "1"
+  },
+  "yaml.customTags": [
+    "!Base64 scalar",
+    "!Cidr sequence",
+    "!And sequence",
+    "!Equals sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Or sequence",
+    "!Condition scalar",
+    "!FindInMap sequence",
+    "!GetAtt scalar",
+    "!GetAtt sequence",
+    "!GetAZs scalar",
+    "!ImportValue scalar",
+    "!Join sequence",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub scalar",
+    "!Transform mapping",
+    "!Ref scalar",
+    "!And",
+    "!If",
+    "!Not",
+    "!Equals",
+    "!Or",
+    "!FindInMap",
+    "!Base64",
+    "!Join",
+    "!Cidr",
+    "!Ref",
+    "!Sub",
+    "!Sub sequence",
+    "!GetAtt",
+    "!GetAZs",
+    "!ImportValue",
+    "!ImportValue sequence",
+    "!Select",
+    "!Split"
+  ],
+  "editor.accessibilitySupport": "off",
+  "aws.profile": "profile:dev",
+  "aws.telemetry": false
 }
