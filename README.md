@@ -70,7 +70,7 @@ This script installs the basic software tools for developer requirements. Althou
 To install, copy the below command and paste it in your terminal:
 
 ```shell
-/bin/bash -c "$(curl -fsSL https://raw/githubusercontent.com/sydrawat01/dotfiles/master/osx.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sydrawat01/dotfiles/master/osx.sh)"
 ```
 
 ## :octocat: Clone and setup
@@ -78,7 +78,7 @@ To install, copy the below command and paste it in your terminal:
 Clone this repository in your desired path using:
 
 ```shell
-git clone https://github.com/sydrawat/dotfiles.git
+https://github.com/sydrawat01/dotfiles.git
 ```
 
 To run the script to install all basic software with personal configs on your Mac, use this shell script: `osx.sh`.
