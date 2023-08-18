@@ -1,10 +1,10 @@
 -- auto install packer if not installed
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
+    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+    vim.cmd([[packadd packer.nvim]])
     return true
   end
   return false
@@ -20,7 +20,7 @@ vim.cmd([[
 ]])
 
 -- import packer safely
-local status, packer = pcall(require, 'packer')
+local status, packer = pcall(require, "packer")
 if not status then
   return
 end
@@ -28,20 +28,20 @@ end
 -- add list of plugins to install
 return packer.startup(function(use)
   -- custom plugins that packer can manage itself
-  use 'wbthomason/packer.nvim'
-  use('nvim-lua/plenary.nvim') -- lua functions that many plugins use
-  use 'bluz71/vim-nightfly-guicolors' -- preferred-colorscheme
-  use('christoomey/vim-tmux-navigator') -- tmux and split window navigation
-  use('szw/vim-maximizer') -- maximize and restore current window
-  
+  use("wbthomason/packer.nvim")
+  use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
+  use("bluz71/vim-nightfly-guicolors") -- preferred-colorscheme
+  use("christoomey/vim-tmux-navigator") -- tmux and split window navigation
+  use("szw/vim-maximizer") -- maximize and restore current window
+
   -- essential plugins
-  use('tpope/vim-surround') -- add, delete, change surroundings
-  use('inkarkat/vim-ReplaceWithRegister') -- replace with register contents using motion (gr+motion)
-  use('numToStr/Comment.nvim') -- comment with gc
-  use('nvim-tree/nvim-tree.lua') -- file explorer
-  use('nvim-tree/nvim-web-devicons') -- vscode like icons
-  use('nvim-lualine/lualine.nvim') -- status line
-  
+  use("tpope/vim-surround") -- add, delete, change surroundings
+  use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr+motion)
+  use("numToStr/Comment.nvim") -- comment with gc
+  use("nvim-tree/nvim-tree.lua") -- file explorer
+  use("nvim-tree/nvim-web-devicons") -- vscode like icons
+  use("nvim-lualine/lualine.nvim") -- status line
+
   -- fuzzy finding w/ telescope
   use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
@@ -96,6 +96,6 @@ return packer.startup(function(use)
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sync()
   end
 end)
