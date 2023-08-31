@@ -42,14 +42,39 @@ This script installs the basic software tools for developer requirements. Althou
 │ │ └── .npmrc
 │ ├── vim
 │ │ └── .vimrc
+│ ├── nvim
+│ │ ├── .stylua.toml
+│ │ ├── init.lua
+│ │ ├── lua
+│ │ │ └── sid
+│ │ │ ├── plugins-setup.lua
+│ │ │ ├── core
+│ │ │ │ ├── colorscheme.lua
+│ │ │ │ ├── keymaps.lua
+│ │ │ │ └── options.lua
+│ │ │ └── plugins
+│ │ │ │ ├── autopairs.lua
+│ │ │ │ ├── comment.lua
+│ │ │ │ ├── gitsigns.lua
+│ │ │ │ ├── nvim-cmp.lua
+│ │ │ │ ├── nvim-tree.lua
+│ │ │ │ ├── telescope.lua
+│ │ │ │ ├── treesitter.lua
+│ │ │ │ └── lsp
+│ │ │ │ ├── lspconfig.lua
+│ │ │ │ ├── lspsaga.lua
+│ │ │ │ ├── mason.lua
+│ │ │ │ ├── null-ls.lua
+│ │ ├── plugin
+│ │ └── settings.json
 │ └── vscode
-│   ├── .babelrc
-│   ├── .eslintrc
-│   ├── .prettierrc
-│   ├── extensions.txt
-│   ├── java.json
-│   ├── keybindings.json
-│   └── settings.json
+│ ├── .babelrc
+│ ├── .eslintrc
+│ ├── .prettierrc
+│ ├── extensions.txt
+│ ├── java.json
+│ ├── keybindings.json
+│ └── settings.json
 ├── extras
 │ └── cmd-colors.sh
 ├── git
@@ -58,11 +83,13 @@ This script installs the basic software tools for developer requirements. Althou
 │ ├── .gitmessage
 │ └── .gitconfig
 └── runcom
-  ├── .bash_profile
-  ├── .zprofile
-  ├── .zshrc
-  ├── Dracula.terminal
-  └── material-theme.terminal
+├── .bash_profile
+├── .zprofile
+├── .zshrc
+├── Dracula.terminal
+├── Dracula.itermcolors
+├── iTerm2-green-dollar.icns
+└── material-theme.terminal
 ```
 
 ## :arrow_down: One script install
@@ -96,6 +123,7 @@ Then, run the file:
 ```
 
 All your dev needs installed in one go!
+
 <!---
 Here are the apps that will be installed using this script:
 
@@ -128,6 +156,10 @@ Here are the apps that will be installed using this script:
 - [Homebrew](https://brew.sh)
 - [Homebrew Cask](http://caskroom.io)
 - [oh-my-zsh](https://github.com/ohmyzsh/ohmyzsh)
+- [starship-cross-shell-prompt](starship.rs/)
+- [iterm2](https://iterm2.com/)
+- [tmux](https://github.com/tmux/tmux/wiki)
+- [neovim](https://neovim.io/)
 - [spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
 - [zeit-hyper](https://github.com/zeit/hyper)
 - [cz-conventional-changelog](https://github.com/commitizen)

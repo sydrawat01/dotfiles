@@ -117,6 +117,69 @@ fi
 
 echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 echo "|                                                                                                                                         |"
+echo "|                                                                  iTerm2                                                                 |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install iTerm2 (${bold}y${reset}/${bold}n${reset})? "
+read -r iterm
+
+if [ "$iterm" != "${iterm#[Yy]}" ]; then
+    printf '📦 Installing iTerm2...\n'
+    brew install --cask iterm2 
+    ITERM=$?
+    if [ $ITERM -eq 0 ]; then
+        printf '✨ iTerm2 installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing iTerm2.\n'
+    fi
+else
+    printf '\n⏭ Skipping...\n\n'
+fi
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                                    tmux                                                                 |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install tmux(${bold}y${reset}/${bold}n${reset})? "
+read -r tmux
+
+if [ "$tmux" != "${tmux#[Yy]}" ]; then
+    printf '📦 Installing tmux...\n'
+    brew install tmux 
+    TMUX=$?
+    if [ $TMUX -eq 0 ]; then
+        printf '✨ tmux installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing tmux.\n'
+    fi
+else
+    printf '\n⏭ Skipping...\n\n'
+fi
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
+echo "|                                                                  neovim                                                                 |"
+echo "|                                                                                                                                         |"
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo -n "👾 Do you wish to install neovim(${bold}y${reset}/${bold}n${reset})? "
+read -r neovim
+
+if [ "$neovim" != "${neovim#[Yy]}" ]; then
+    printf '📦 Installing neovim...\n'
+    brew install neovim
+    NVIM=$?
+    if [ $NVIM -eq 0 ]; then
+        printf '✨ neovim installed successfully!\n'
+    else
+        printf '💩 Oops! Something went wrong while installing neovim.\n'
+    fi
+else
+    printf '\n⏭ Skipping...\n\n'
+fi
+
+echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
+echo "|                                                                                                                                         |"
 echo "|                                                           NVM, NodeJS & NPM                                                             |"
 echo "|                                                                                                                                         |"
 echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
