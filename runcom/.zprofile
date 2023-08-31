@@ -1,9 +1,6 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zprofile.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.pre.zsh"
-PATH="/usr/local/opt/python/libexec/bin:/usr/local/Cellar/mongodb-community/4.2.6/bin/mongo:$PATH"
-export PATH
+# Set PATH, MANPATH, etc. for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export EDITOR=code
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zprofile.post.zsh" ]] && builtin source "$HOME/.fig/shell/zprofile.post.zsh"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

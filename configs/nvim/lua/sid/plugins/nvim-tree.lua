@@ -1,5 +1,5 @@
 -- import nvim-tree plugin safely
-local setup, nvimtree = pcall(require, "nvim-tree")
+local setup, nvimtree = pcall(require, 'nvim-tree')
 if not setup then
   return
 end
@@ -18,8 +18,8 @@ nvimtree.setup({
     icons = {
       glyphs = {
         folder = {
-          arrow_closed = "→", -- arrow when folder is closed
-          arrow_open = "↓", -- arrow when folder is open
+          arrow_closed = '→', -- arrow when folder is closed
+          arrow_open = '↓', -- arrow when folder is open
         },
       },
     },
@@ -43,7 +43,7 @@ nvimtree.setup({
 
 local function open_nvim_tree(data)
   -- buffer is a [No Name]
-  local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+  local no_name = data.file == '' and vim.bo[data.buf].buftype == ''
 
   -- buffer is a directory
   local directory = vim.fn.isdirectory(data.file) == 1
@@ -58,7 +58,7 @@ local function open_nvim_tree(data)
   end
 
   -- open the tree
-  require("nvim-tree.api").tree.open()
+  require('nvim-tree.api').tree.open()
 end
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+vim.api.nvim_create_autocmd({ 'VimEnter' }, { callback = open_nvim_tree })
