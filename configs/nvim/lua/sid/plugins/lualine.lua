@@ -5,22 +5,28 @@ if not status then
 end
 
 -- get lualine nightfly theme
-local lualine_nightfly = require('lualine.themes.nightfly')
+local lualine_onedark = require('lualine.themes.onedark')
 
--- new colors for theme
+-- color table for highlights
 local new_colors = {
-  blue = '#65D1FF',
-  green = '#3EFFDC',
-  violet = '#FF61EF',
-  yellow = '#FFDA7B',
-  black = '#000000',
+  bg       = '#202328',
+  fg       = '#bbc2cf',
+  yellow   = '#ECBE7B',
+  cyan     = '#008080',
+  darkblue = '#081633',
+  green    = '#98be65',
+  orange   = '#FF8800',
+  violet   = '#a9a1e1',
+  magenta  = '#c678dd',
+  blue     = '#51afef',
+  red      = '#ec5f67'
 }
 
--- change nightlfy theme colors
-lualine_nightfly.normal.a.bg = new_colors.blue
-lualine_nightfly.insert.a.bg = new_colors.green
-lualine_nightfly.visual.a.bg = new_colors.violet
-lualine_nightfly.command = {
+-- change onedark theme colors
+lualine_onedark.normal.a.bg = new_colors.blue
+lualine_onedark.insert.a.bg = new_colors.green
+lualine_onedark.visual.a.bg = new_colors.violet
+lualine_onedark.command = {
   a = {
     gui = 'bold',
     bg = new_colors.yellow,
@@ -33,6 +39,5 @@ lualine.setup({
   options = {
     icons_enabled = true,
     theme = 'onedark',
-    --theme = lualine_nightfly,
   },
 })

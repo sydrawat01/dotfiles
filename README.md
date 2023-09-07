@@ -34,6 +34,8 @@ This script installs the basic software tools for developer requirements. Althou
 ├── package.json
 ├── README.md
 ├── configs
+│ ├── starship
+│ │ └── starship.toml
 │ ├── hyper
 │ │ ├── .hyper_plugins
 │ │ │ └── blur.js
@@ -52,7 +54,7 @@ This script installs the basic software tools for developer requirements. Althou
 │ │ │ │ ├── colorscheme.lua
 │ │ │ │ ├── keymaps.lua
 │ │ │ │ └── options.lua
-│ │ │ └── plugins
+│ │ │ ├── plugins
 │ │ │ │ ├── autopairs.lua
 │ │ │ │ ├── comment.lua
 │ │ │ │ ├── gitsigns.lua
@@ -67,7 +69,7 @@ This script installs the basic software tools for developer requirements. Althou
 │ │ │ │ ├── null-ls.lua
 │ │ ├── plugin
 │ │ └── settings.json
-│ └── vscode
+│ ├── vscode
 │ ├── .babelrc
 │ ├── .eslintrc
 │ ├── .prettierrc
