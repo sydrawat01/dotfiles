@@ -16,7 +16,7 @@ main()
 {
   # storing the refresh rate in the variable RATE, default is 5
   RATE=$(get_tmux_option "@dracula-refresh-rate" 5)
-  OUTPUT_STRING="󰠳 "
+  OUTPUT_STRING=""
   if [ ! -z "$current_user" ]
   then
     OUTPUT_STRING="${current_user}@"
@@ -32,14 +32,15 @@ main()
     OUTPUT_STRING="${OUTPUT_STRING}:${current_namespace}"
   fi
 
-  if [ "$OUTPUT_STRING" = "󰠳 " ]
+  if [ "$OUTPUT_STRING" = "" ]
   then
-    OUTPUT_STRING="  !kubeconfig"
+    OUTPUT_STRING="!kubeconfig"
   fi
 
   if [ "$label" = "" ]
   then
-    echo "${OUTPUT_STRING}"
+    label=""
+    echo "${label} ${OUTPUT_STRING}"
   else
     echo "${label} ${OUTPUT_STRING}"
   fi
