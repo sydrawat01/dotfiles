@@ -31,13 +31,18 @@ main() {
   # Dracula Color Pallette
   white='#f8f8f2'
   gray='#44475a'
+  light_gray='#CBD5E1'
   dark_gray='#282a36'
+  purple='#6f6ebf'
   light_purple='#bd93f9'
   deep_purple='#c678dd'
   dark_purple='#6272a4'
   st_orange='#ffb86c'
   cyan='##8be9fd'
+  deep_blue='#0063B1'
   green='#98c379'
+  light_green='#AED581'
+  turquoise='#26A69A'
   orange='#d19a66'
   light_orange='#e5c07b'
   red='#ff5555'
@@ -46,6 +51,7 @@ main() {
 
   # ANSI colors
   ansiblack='#21222C'
+  ansibrown='#A1887F'
   ansired='#FF5555'
   ansigreen='#50FA7B'
   ansiyellow='#F1FA8C'
