@@ -2,15 +2,15 @@
 #symbol = "󰚲 "
 
 [aws]
-symbol = " "
+symbol = "  "
 
 [azure]
 symbol = " "
 
 [battery]
 full_symbol = '🔋 '
-charging_symbol = '⚡️ '
-discharging_symbol = '💀 '
+charging_symbol = '󰚥󰂄 '
+discharging_symbol = '󱟩 '
 
 [[battery.display]]
 threshold = 10
@@ -49,8 +49,8 @@ symbol = " "
 [golang]
 symbol = " "
 
-#[gcp]
-#symbol = "󰊭 "
+[gcloud]
+symbol = "󰊭 "
 
 [guix_shell]
 symbol = " "
@@ -143,7 +143,7 @@ Unknown = " "
 Windows = "󰍲 "
 
 [package]
-symbol = "📦 "
+symbol = " "
 
 [pijul_channel]
 symbol = "🪺 "
@@ -181,6 +181,8 @@ symbol = "🅢 "
 [swift]
 symbol = "󰛥 "
 
+[terraform]
+symbol = " "
 #[vim]
 #symbol = " "
 

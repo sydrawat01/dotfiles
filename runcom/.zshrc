@@ -4,16 +4,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Custom aliases
-# vi, vim and nvim aliases
-alias vi="/opt/homebrew/bin/nvim"
-alias vim="/opt/homebrew/bin/nvim"
-alias oldvim="/usr/bin/vim"
-alias oldvi="/usr/bin/vi"
-
-# Python3 alias
-alias python="/usr/bin/python3"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -80,7 +70,13 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git \
+  zsh-autosuggestions \
+  zsh-syntax-highlighting \
+  golang \
+  kubectl \
+  ansible \
+  helm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +105,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+# vi, vim and nvim aliases
+alias vi="/opt/homebrew/bin/nvim"
+alias vim="/opt/homebrew/bin/nvim"
+alias ovim="/usr/bin/vim" # old vim
+alias ovi="/usr/bin/vi" # old vi
+
+# Python3 alias
+alias python="/usr/bin/python3"
+
+# Command aliases
+alias ll="ls -la"
+alias tf="terraform"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -119,4 +127,11 @@ export NVM_DIR="$HOME/.nvm"
 # starship prompt
 eval "$(starship init zsh)"
 
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+# k8s configuration
+export KUBE_EDITOR=nvim
+
+# golang setup
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"

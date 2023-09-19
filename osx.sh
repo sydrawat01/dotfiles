@@ -416,10 +416,12 @@ echo "|                                                      Miscellaneous Confi
 echo "|                                                                                                                                         |"
 echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 printf "⚙️  Configuring git VCS...\n."
-cp ./git/.gitconfig ~/
+cd ~ 
+wget https://raw.githubusercontent.com/sydrawat01/dotfiles/master/configs/git/conventional-commit.txt
+wget https://raw.githubusercontent.com/sydrawat01/dotfiles/master/configs/git/.gitconfig
 GIT=$?
 if [ $GIT -eq 0 ]; then
-    cp ./git/.gitmessage ~/
+    mv conventional-commit.txt ~/.config/git
     GIT=$?
     if [ $GIT -eq 0 ]; then
         printf '✔  Git configuration done.\n'
@@ -431,7 +433,8 @@ else
 fi
 
 printf "⚙️  Configuring Vim...\n."
-cp ./configs/vim/.vimrc ~/
+cd ~
+wget https://raw.githubusercontent.com/sydrawat01/dotfiles/master/configs/vim/.vimrc
 VIM=$?
 if [ $VIM -eq 0 ]; then
     printf '✔  Vim configuration done.\n'
@@ -447,23 +450,28 @@ if [ $TERM -eq 0 ]; then
     TERM=$?
     if [ $TERM -eq 0 ]; then
         printf '✔  Dracula theme successfully installed.\n'
-        printf 'Don'\''t forget to open the terminal app settings to set the dracula theme as the default theme!\n'
-        printf 'Also while we have you here, a good window size is 140x40 with Roboto Mono Light for Powerline font, size 12\n'
+        printf 'Don'\''t forget to open the terminal app (iTerm2 is preferred) settings to set the dracula theme as the default theme!\n'
+        printf 'Also while we have you here, a good window size is 150x52 with JetBrains Mono NerdFont, size 12\n'
     fi
 else
     printf '❌  Error occurred while configuring Dracula Terminal theme\n'
 fi
 
-printf '⚠️  Please note /runcom settings are not being installed, as they might differ.\n'
-printf 'The settings for sydrawat01/dotfiles depends on another package called '\''fig'\''\n'
-printf 'Make changes to these files at your own risk!\n'
+printf '⚠️  Please note /runcom settings are being installed, these might differ for your personal preferences.\n'
+printf "⚙️  Configuring .zshrc...\n."
+cd ~
+wget https://raw.githubusercontent.com/sydrawat01/dotfiles/master/runcom/.zshrc 
+ZSH=$?
+if [ $ZSH -eq 0 ]; then
+  source ~/.zshrc
+  printf '✔  ZSH configured successfully.\n'
 
 echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
 echo "|                                                                                                                                         |"
 echo "|                                                     Performing Homebrew Cleanup                                                         |"
 echo "|                                                                                                                                         |"
 echo "+-----------------------------------------------------------------------------------------------------------------------------------------+"
-brew cleanup
+brew cleanup --prune=all
 BRWCLNP=$?
 if [ $BRWCLNP -eq 0 ]; then
     printf '✔  Cleanup complete.\n'
