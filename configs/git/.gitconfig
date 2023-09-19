@@ -1,0 +1,13 @@
+[user]
+  name = Siddharth Rawat
+  email = rawat.sid@northeastern.edu
+[core]
+  editor = code -w
+[credential]
+  helper = osxkeychain
+[init]
+  defaultBranch = master
+[github]
+  user = sydrawat01
+[commit]
+  template = ~/.config/git/conventional-commit.txt
