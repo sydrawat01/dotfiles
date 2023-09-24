@@ -14,8 +14,8 @@ M.ui = {
     separator_style = "arrow",
   },
   -- highlights
-  hl_override = highlights.override,
-  hl_add = highlights.add,
+  --hl_override = highlights.override,
+  --hl_add = highlights.add,
   -- cmp themeing
   cmp = {
     style = "flat_light",
@@ -23,6 +23,17 @@ M.ui = {
   -- telescope
   telescope = {
     style = "bordered",
+  },
+  -- overriding nvdash ASCII highlights 
+  hl_override = {
+    NvDashAscii = {
+      bg = "none",
+      fg = "sun",
+    },
+    NvDashButtons = {
+      bg = "NONE",
+      fg = "grey_fg2"
+    }
   },
   -- nvdash (dashboard)
   nvdash = {
