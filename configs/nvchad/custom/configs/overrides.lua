@@ -12,6 +12,13 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
+    "hcl",
+    "terraform",
+    "json",
+    "dockerfile",
+    "bash",
+    "toml",
+    "yaml",
   },
   indent = {
     enable = true,
@@ -37,6 +44,10 @@ M.mason = {
     -- c/cpp stuff
     "clangd",
     "clang-format",
+
+    -- other devops requirements
+    "terraform-ls",
+    "tflint",
   },
 }
 
@@ -44,6 +55,7 @@ M.mason = {
 M.nvimtree = {
   git = {
     enable = true,
+    -- ignore = false,
   },
 
   renderer = {
