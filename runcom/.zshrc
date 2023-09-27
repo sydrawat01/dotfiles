@@ -102,21 +102,31 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+# Moved all aliases to the `.zsh_aliases` file for modularity.
+. ~/.zsh_aliases
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # vi, vim and nvim aliases
-alias vi="/opt/homebrew/bin/nvim"
-alias vim="/opt/homebrew/bin/nvim"
-alias ovim="/usr/bin/vim" # old vim
-alias ovi="/usr/bin/vi" # old vi
+# alias vi="/opt/homebrew/bin/nvim"
+# alias vim="/opt/homebrew/bin/nvim"
+# alias oldvim="/usr/bin/vim"
+# alias oldvi="/usr/bin/vi"
 
 # Python3 alias
-alias python="/usr/bin/python3"
+# alias python="/usr/bin/python3"
 
 # Command aliases
-alias ll="ls -la"
-alias tf="terraform"
+# alias ll="ls -la"
+# alias tf="terraform"
+
+# git aliases
+# alias pull="git pull upstream master"
+# alias push="git push sid master"
+
+# Developer
+# alias dev="cd ~/Developer/"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -135,3 +145,6 @@ export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /opt/homebrew/bin/terraform terraform

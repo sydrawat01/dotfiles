@@ -1,0 +1,27 @@
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+# vi, vim and nvim aliases
+alias vi="/opt/homebrew/bin/nvim"
+alias vim="/opt/homebrew/bin/nvim"
+alias oldvim="/usr/bin/vim"
+alias oldvi="/usr/bin/vi"
+
+# Python3 alias
+alias python="/usr/bin/python3"
+
+# Command aliases
+alias ll="ls -la"
+alias tf="terraform"
+
+# git aliases
+alias pull="git pull upstream master"
+alias push="git push sid master"
+
+# Developer
+alias dev="cd ~/Developer/"
