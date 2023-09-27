@@ -25,3 +25,6 @@ alias push="git push sid master"
 
 # Developer
 alias dev="cd ~/Developer/"
+alias cm="git checkout master"
+alias cb="git checkout -b"
+alias db="git branch -D"
