@@ -48,6 +48,8 @@ M.mason = {
     -- other devops requirements
     "terraform-ls",
     "tflint",
+    "yaml-language-server",
+    "dockerfile-language-server",
   },
 }
 
