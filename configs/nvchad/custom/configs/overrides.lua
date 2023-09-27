@@ -38,17 +38,27 @@ M.mason = {
     "css-lsp",
     "html-lsp",
     "typescript-language-server",
-    "deno",
     "prettier",
+    "json-lsp",
 
     -- c/cpp stuff
     "clangd",
     "clang-format",
 
-    -- other devops requirements
+    -- shell
+    "bash-language-server",
+    "shfmt",
+    "shellcheck",
+
+    -- terraform
     "terraform-ls",
     "tflint",
-    "yaml-language-server",
+
+    -- ansible
+    "ansible-lint",
+    "ansible-language-server",
+
+    -- docker
     "dockerfile-language-server",
   },
 }
