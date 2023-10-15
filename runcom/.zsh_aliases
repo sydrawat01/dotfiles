@@ -17,14 +17,23 @@ alias python="/usr/bin/python3"
 
 # Command aliases
 alias ll="ls -la"
+
+# terraform
 alias tf="terraform"
+alias tfp="tf plan"
+alias tfa="tf apply"
+alias tfd="tf destroy"
+
+# kubernetes
+alias k="kubectl"
+alias kns="kubens"
+alias ktx="kubectx"
 
 # git aliases
-alias pull="git pull upstream master"
-alias push="git push sid master"
+alias g="git"
+alias pull="g pull upstream master"
+alias push="g push sid master"
 
 # Developer
 alias dev="cd ~/Developer/"
-alias cm="git checkout master"
-alias cb="git checkout -b"
-alias db="git branch -D"
+alias pwn="dev && cd pwncorp"

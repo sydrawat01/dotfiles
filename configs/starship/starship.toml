@@ -9,7 +9,7 @@ symbol = " "
 
 [battery]
 full_symbol = '🔋 '
-charging_symbol = '󰚥󰂄 '
+charging_symbol = '󰚥 '
 discharging_symbol = '󱟩 '
 
 [[battery.display]]
@@ -50,7 +50,10 @@ symbol = " "
 symbol = " "
 
 [gcloud]
-symbol = "󰊭 "
+# symbol = "󰊭 "
+symbol = " "
+format = '[$symbol $account(\($project\))]($style) '
+style = "bold yellow"
 
 [guix_shell]
 symbol = " "
@@ -75,6 +78,9 @@ symbol = " "
 
 [julia]
 symbol = " "
+
+[kubernetes]
+symbol = "☸ "
 
 [lua]
 symbol = " "
@@ -193,5 +199,6 @@ symbol = " "
 #symbol = "󰜫 "
 
 [character]
-success_symbol = '[➜](bold green) '
+#  bolder arrow
+success_symbol = '[→](bold green) '
 error_symbol = '[✗](bold red) '

@@ -25,7 +25,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -70,12 +70,30 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# Configuring Completions in zsh
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+  compinit
+fi
+
+export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# initialize autocomplete
+# autoload -Uz compinit
+# compinit
+
 plugins=(git \
   zsh-autosuggestions \
   zsh-syntax-highlighting \
   golang \
   kubectl \
   ansible \
+  minikube \
+  aws \
+  gcloud \
   helm)
 
 source $ZSH/oh-my-zsh.sh
@@ -144,7 +162,9 @@ export KUBE_EDITOR=nvim
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin:/opt/homebrew/bin/aws_completer"
+# export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# complete -C '/opt/homebrew/bin/aws_completer' aws
