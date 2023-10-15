@@ -37,7 +37,7 @@ get_ssid()
 
 main()
 {
-  network="Offline"
+  network="offline"
   for host in $HOSTS; do
     if ping -q -c 1 -W 1 $host &>/dev/null; then
       network="$(get_ssid)"

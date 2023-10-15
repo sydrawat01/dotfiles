@@ -138,7 +138,7 @@ main()
   elif [ -z "$bat_perc" ]; then # In case it is a desktop with no battery percent, only AC power
     echo "$bat_label $bat_stat"
   else
-    echo "󰚥󰂄 $batt%"
+    echo "󰚥$batt%"
   fi
 }
 

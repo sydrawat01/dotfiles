@@ -11,3 +11,12 @@
   user = sydrawat01
 [commit]
   template = ~/.config/git/conventional-commit.txt
+#[commit]
+#  template = /Users/sid/.gitmessage
+[alias]
+  b = branch
+  bd = branch -D
+  co = checkout
+  cob = checkout -b
+  lt = log --no-walk --tags --pretty="%h %d %s" --decorate=full
+  lp = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short 
