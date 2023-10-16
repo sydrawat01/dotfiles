@@ -18,12 +18,15 @@ alias python="/usr/bin/python3"
 # Command aliases
 alias ll="ls -la"
 
+# ansible
+alias a="ansible"
+
 # terraform
 alias tf="terraform"
 alias tfp="tf plan"
 alias tfa="tf apply"
 alias tfd="tf destroy"
-
+#
 # kubernetes
 alias k="kubectl"
 alias kns="kubens"

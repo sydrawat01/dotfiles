@@ -1,27 +1,77 @@
-########################################################################
-# Please enter the commit message for your changes. Lines starting
-# with '#' will be ignored, and an empty message aborts the commit.
+### Reference: https://www.conventionalcommits.org/en/v1.0.0-beta.2/
+### NOTE: Please enter the commit message for your changes. Lines starting
+#   with '#' will be ignored, and an empty message aborts the commit.
 
-# Please abide by the following commit template guidelines:
-# 1. Separate subject from body with a blank line
-# 2. Limit the subject line to 50 characters
-# 3. Capitalize the subject line
-# 4. Do not end the subject line with a period
-# 5. Use the imperative mood in the subject line
-# 6. Wrap the body at 72 characters
-# 7. Use the body to explain what and why vs. how
-########################################################################
+## Remember to keep spaces where mentioned, since they will be linted by the
+#  conventional commit dev dependency.
 
-# Issue ID: JIRA issue #
-# Title: :icon: Short summary
-# No more than 50 chars. #### 50 chars is here:  #
-
-# Remember to keep a blank line between title and description.
-
-# Description:
-# Wrap at 72 chars. ################################## which is here:  #
-
-# At the end: Include Co-authored-by for all contributors.
-# Include at least one empty line before it. Format:
-# Co-authored-by: name <user@users.noreply.github.com>
+# <type>[optional scope]: <description>
 #
+# [optional body]
+#
+# [optional footer(s)]
+
+### Commit Types:
+
+# `feat` – a new feature is introduced with the changes
+# `fix` – a bug fix has occurred
+# `chore` – changes that do not relate to a fix or feature and don't modify src
+#         or test files (for example updating dependencies)
+# `refactor` – refactored code that neither fixes a bug nor adds a feature
+# `docs` – updates to documentation such as a the README or other markdown files
+# `style` – changes that do not affect the meaning of the code, likely related
+#         to code formatting such as white-space, missing semi-colons, and so on
+# `test` – including new or correcting previous tests
+# `perf` – performance improvements
+# `ci` – continuous integration related
+# `build` – changes that affect the build system or external dependencies
+# `revert` – reverts a previous commit
+
+### Examples:
+
+## 1. Commit message with description and breaking change footer
+# feat: allow provided config object to extend other configs
+#
+# BREAKING CHANGE: `extends` key in config file is now used for extending other
+# config files
+
+## 2. Commit message with ! to draw attention to breaking change
+# refactor!: drop support for Node 6
+
+## 3. Commit message with both ! and BREAKING CHANGE footer
+# refactor!: drop support for Node 6
+#
+# BREAKING CHANGE: refactor to use JavaScript features not available in Node 6.
+
+## 4. Commit message with no body
+# docs: correct spelling of CHANGELOG
+
+## 5. Commit message with scope
+# feat(lang): add polish language
+
+## 6. Commit message with multi-paragraph body and multiple footers
+# fix: correct minor typos in code
+# see the issue for details
+#
+# on typos fixed.
+#
+# Reviewed by: name <user@users.noreply.github.com>
+#
+# Refs #179
+
+## 7. Commit message for a fix using an (optional) issue number.
+# fix: minor typos in code
+#
+# see the issue for details on the typos fixed
+#
+# fixes issue #12
+
+## 8. Full conventional commit example
+# fix: fix foo to enable bar
+#
+# This fixes the broken behavior of the component by doing xyz.
+#
+# BREAKING CHANGE
+# Before this fix foo wasn't enabled at all, behavior changes from <old> to <new>
+#
+# Closes D2IQ-12345
