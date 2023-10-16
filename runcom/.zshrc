@@ -71,19 +71,8 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
-# Configuring Completions in zsh
-if type brew &>/dev/null
-then
-  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-  autoload -Uz compinit
-  compinit
-fi
-
+# Confige Completions in zsh
 export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-# initialize autocomplete
-# autoload -Uz compinit
-# compinit
 
 plugins=(git \
   zsh-autosuggestions \
@@ -94,6 +83,7 @@ plugins=(git \
   minikube \
   aws \
   gcloud \
+  terraform \
   helm)
 
 source $ZSH/oh-my-zsh.sh
@@ -106,11 +96,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -123,34 +113,9 @@ source $ZSH/oh-my-zsh.sh
 # Moved all aliases to the `.zsh_aliases` file for modularity.
 . ~/.zsh_aliases
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-# vi, vim and nvim aliases
-# alias vi="/opt/homebrew/bin/nvim"
-# alias vim="/opt/homebrew/bin/nvim"
-# alias oldvim="/usr/bin/vim"
-# alias oldvi="/usr/bin/vi"
-
-# Python3 alias
-# alias python="/usr/bin/python3"
-
-# Command aliases
-# alias ll="ls -la"
-# alias tf="terraform"
-
-# git aliases
-# alias pull="git pull upstream master"
-# alias push="git push sid master"
-
-# Developer
-# alias dev="cd ~/Developer/"
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# ~/.zshrc
 
 # starship prompt
 eval "$(starship init zsh)"
@@ -162,9 +127,5 @@ export KUBE_EDITOR=nvim
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 
-export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin:/opt/homebrew/bin/aws_completer"
-# export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
-# complete -C '/opt/homebrew/bin/aws_completer' aws

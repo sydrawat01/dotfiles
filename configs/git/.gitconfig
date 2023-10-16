@@ -10,9 +10,9 @@
 [github]
   user = sydrawat01
 [commit]
-  template = ~/.config/git/conventional-commit.txt
+  template = ~/.config/git/.gitmessage
 #[commit]
-#  template = /Users/sid/.gitmessage
+#  template = /Users/sid/.gitmessage.old
 [alias]
   b = branch
   bd = branch -D
@@ -20,3 +20,4 @@
   cob = checkout -b
   lt = log --no-walk --tags --pretty="%h %d %s" --decorate=full
   lp = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short 
+  s = status
