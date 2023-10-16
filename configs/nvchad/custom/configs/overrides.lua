@@ -37,6 +37,7 @@ M.mason = {
     -- web dev stuff
     "css-lsp",
     "html-lsp",
+    "eslint",
     "typescript-language-server",
     "prettier",
     "json-lsp",
@@ -60,6 +61,12 @@ M.mason = {
 
     -- docker
     "dockerfile-language-server",
+
+    -- golang
+    "golangci-lint",
+    "golangci-lint-langserver",
+    "gofumpt",
+    "goimports",
   },
 }
 
