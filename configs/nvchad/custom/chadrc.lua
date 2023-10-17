@@ -10,8 +10,9 @@ M.ui = {
   theme_toggle = { "onedark", "one_light" },
   -- statusline
   statusline = {
-    theme = "default",
-    separator_style = "arrow",
+    theme = "vscode_colored",
+    -- theme = "default",
+    -- separator_style = "arrow",
   },
   -- highlights
   --hl_override = highlights.override,

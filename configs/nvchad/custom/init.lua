@@ -1,4 +1,8 @@
 local autocmd = vim.api.nvim_create_autocmd
+local opt = vim.opt
+
+-- relative line numbers
+opt.relativenumber = true
 
 -- Auto resize panes when resizing nvim window
 -- autocmd("VimResized", {
@@ -6,7 +10,7 @@ local autocmd = vim.api.nvim_create_autocmd
 --   command = "tabdo wincmd =",
 -- })
 autocmd({"BufWritePre"}, {
-  pattern = {"*.tf" ,"*.tfvars", "*.yml"},
+  pattern = {"*.tf" ,"*.tfvars", "*.yml", "*.yaml", "*.go"},
   callback = function()
     vim.lsp.buf.format()
   end,
