@@ -16,5 +16,12 @@
     "url": "https://github.com/sydrawat/dotfiles01/issues"
   },
   "homepage": "https://github.com/sydrawat01/dotfiles#readme",
+  "devDependencies": {
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/commit-analyzer": "^11.0.0",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^9.2.1",
+    "@semantic-release/npm": "^11.0.0",
+    "@semantic-release/release-notes-generator": "^12.0.0"
+  }
 }
-

@@ -1,5 +1,7 @@
 # .files
 
+[![Release](https://github.com/sydrawat01/dotfiles/actions/workflows/release.yml/badge.svg)](https://github.com/sydrawat01/dotfiles/actions/workflows/release.yml)
+
 A simple way to setup a new MacOS laptop/desktop for development, using just one command.
 
 > NOTE: This repository contains sysconfigs for my personal computer, if you use anything from the `runcom/` folder, please use it at your own risk!
