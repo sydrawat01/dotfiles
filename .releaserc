@@ -1,0 +1,61 @@
+{
+  "branches": [
+    "master"
+  ],
+  "repositoryUrl": "https://github.com/sydrawat01/dotfiles.git",
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
+    [
+      "@semantic-release/git",
+      {
+        "assets": [
+          "package.json",
+          "CHANGELOG.md"
+        ],
+        "message": "chore(release): ${nextRelese.version} [skip ci]\n\n${nextRelese.notes}"
+      }
+    ],
+    "@semantic-release/github"
+  ],
+  "release": {
+    "verifyConditions": {
+      "path": [
+        "@semantic-release/changelog",
+        "@semantic-release/github",
+        "@semantic-release/git"
+      ]
+    },
+    "analyzeCommits": [
+      "@semantic-release/commit-analyzer"
+    ],
+    "generateNotes": [
+      "@semantic-release/release-notes-generator",
+      {
+        "preset": "angular",
+        "writerOpts": {
+          "commitsSort": [
+            "header"
+          ]
+        }
+      }
+    ],
+    "prepare": [
+      "@semantic-release/git",
+      {
+        "path": "@semantic-release/changelog",
+        "changelogFile": "CHANGELOG.md"
+      }
+    ],
+    "publish": "@semantic-release/github",
+    "success": "@semantic-release/github",
+    "fail": "@semantic-release/github"
+  }
+}

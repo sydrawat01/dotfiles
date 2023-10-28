@@ -39,10 +39,9 @@ main()
 
   if [ "$label" = "" ]
   then
-    label=""
-    echo "${label} ${OUTPUT_STRING}"
+    echo "  ${OUTPUT_STRING}"
   else
-    echo "${label} ${OUTPUT_STRING}"
+    echo "  ${OUTPUT_STRING}"
   fi
 
   sleep $RATE
