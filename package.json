@@ -1,6 +1,6 @@
 {
   "name": "dotfiles",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "dotfiles for MacOS",
   "main": "osx.sh",
   "repository": "git+https://github.com/sydrawat01/dotfiles.git",
