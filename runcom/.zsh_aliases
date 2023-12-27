@@ -16,7 +16,7 @@ alias oldvi="/usr/bin/vi"
 alias python="/usr/bin/python3"
 
 # Command aliases
-alias ll="ls -la"
+alias ll="ls -larth"
 
 # ansible
 alias a="ansible"
@@ -26,7 +26,7 @@ alias tf="terraform"
 alias tfp="tf plan"
 alias tfa="tf apply"
 alias tfd="tf destroy"
-#
+
 # kubernetes
 alias k="kubectl"
 alias kns="kubens"
