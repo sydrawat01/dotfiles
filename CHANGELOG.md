@@ -1,3 +1,10 @@
+## [2.2.1](https://github.com/sydrawat01/dotfiles/compare/v2.2.0...v2.2.1) (2023-12-27)
+
+
+### Bug Fixes
+
+* **k9s:** Add k9s config and skin manifest files ([c7c5d4c](https://github.com/sydrawat01/dotfiles/commit/c7c5d4cb51f2bc0fa0b75783214fb7d7408d58e3))
+
 # [2.2.0](https://github.com/sydrawat01/dotfiles/compare/v2.1.0...v2.2.0) (2023-10-28)
 
 
