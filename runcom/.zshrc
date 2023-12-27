@@ -77,6 +77,8 @@ export FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 plugins=(git \
   zsh-autosuggestions \
   zsh-syntax-highlighting \
+  docker\
+  docker-compose\
   golang \
   kubectl \
   ansible \
@@ -96,11 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
-fi
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='nvim'
+# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -127,5 +129,10 @@ export KUBE_EDITOR=nvim
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 
+export ES_JAVA_HOME="$(/usr/libexec/java_home)"
+
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# WORKAROUND: Autoload compinit for autocomplete plugins to work
+# autoload -U compinit && compinit
 

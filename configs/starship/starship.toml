@@ -1,8 +1,20 @@
+# Timeout for commands executed by starship (ms)
+command_timeout = 1000
+
+# add_newline = false
+# A minimal left prompt
+# format = """$directory$character$git_branch$docker_context"""
+# move the rest of the prompt to the right
+right_format = """$gcloud"""
+
 #[angular]
 #symbol = "󰚲 "
 
 [aws]
 symbol = "  "
+style = 'bold blue'
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+
 
 [azure]
 symbol = " "
@@ -33,6 +45,7 @@ read_only = " 󰌾"
 
 [docker_context]
 symbol = " "
+# disabled = true
 
 [elixir]
 symbol = " "
@@ -48,12 +61,14 @@ symbol = " "
 
 [golang]
 symbol = " "
+style = 'bold cyan'
+# format = '[$symbol ]($style)'
 
 [gcloud]
-# symbol = "󰊭 "
-symbol = " "
+symbol = "󰊭"
+# symbol = " "
 format = '[$symbol $account(\($project\))]($style) '
-style = "bold yellow"
+style = "bold green"
 
 [guix_shell]
 symbol = " "
@@ -81,6 +96,9 @@ symbol = " "
 
 [kubernetes]
 symbol = "☸ "
+disabled = true
+detect_files = ['Dockerfile']
+format = '[$context(\[$namespace\])]($style) '
 
 [lua]
 symbol = " "
