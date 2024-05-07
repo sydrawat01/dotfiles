@@ -1,0 +1,27 @@
+[user]
+  name = Siddharth Rawat
+  email = rawat.sid@northeastern.edu
+  signingkey = /Users/sid/.ssh/github.pub
+[core]
+  editor = nvim -w
+[credential]
+  helper = osxkeychain
+[init]
+  defaultBranch = master
+[github]
+  user = sydrawat01
+[commit]
+  template = ~/.config/git/.gitmessage
+  gpgsign = true
+#[commit]
+#  template = /Users/sid/.gitmessage.old
+[alias]
+  b = branch
+  bd = branch -D
+  co = checkout
+  cob = checkout -b
+  lt = log --no-walk --tags --pretty="%h %d %s" --decorate=full
+  lp = log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short 
+  s = status
+[gpg]
+  format = ssh

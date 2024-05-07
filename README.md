@@ -4,28 +4,30 @@
 
 A simple way to setup a new MacOS laptop/desktop for development, using just one command.
 
-> NOTE: This repository contains sysconfigs for my personal computer, if you use anything from the `runcom/` folder, please use it at your own risk!
+> \[!NOTE]\
+> This repository contains sysconfigs for my personal computer, please use these at your own risk!
 
-## :floppy_disk: Softwares
+<!-- ## :floppy_disk: Softwares -->
 
-This script installs the basic software tools for developer requirements. Although this list is exhaustive, it does not end here. I am open to suggestions and PRs that will help expand this utility!
+<!-- This script installs the basic software tools for developer requirements. Although this list is exhaustive, it does not end here. I am open to suggestions and PRs that will help expand this utility! -->
+<!---->
+<!-- - [x] XCode developer tools -->
+<!-- - [x] Homebrew -->
+<!-- - [x] Firefox developer Ed -->
+<!-- - [x] Google Chrome developer Ed -->
+<!-- - [x] Node Version Manager -->
+<!-- - [x] NodeJS & NPM -->
+<!-- - [x] Yarn -->
+<!-- - [x] Postman -->
+<!-- - [x] VSCode -->
+<!-- - [x] Oh-My-Zsh -->
+<!-- - [x] Hyper Terminal -->
+<!-- - [x] Slack -->
+<!-- - [x] Zoom -->
+<!-- - [x] Bitwarden -->
+<!---->
 
-- [x] XCode developer tools
-- [x] Homebrew
-- [x] Firefox developer Ed
-- [x] Google Chrome developer Ed
-- [x] Node Version Manager
-- [x] NodeJS & NPM
-- [x] Yarn
-- [x] Postman
-- [x] VSCode
-- [x] Oh-My-Zsh
-- [x] Hyper Terminal
-- [x] Slack
-- [x] Zoom
-- [x] Bitwarden
-
-## :arrow_down: One script install
+## One script install
 
 To install, copy the below command and paste it in your terminal:
 
@@ -33,7 +35,7 @@ To install, copy the below command and paste it in your terminal:
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/sydrawat01/dotfiles/master/osx.sh)"
 ```
 
-## :octocat: Clone and setup
+## Clone and setup
 
 Clone this repository in your desired path using:
 
@@ -55,8 +57,37 @@ Then, run the file:
 ./osx.sh
 ```
 
-All your dev needs installed in one go!
+## GNU Stow
 
+The GNU Stow is an open source project that helps maintain "symlink farms". I'm using it to maintain symlinks to my system configuration files that live in my `$HOME` directory, mostly the `.config/`, `.zshrc`, `.zshrc_aliases`, `.tmux`, `.vimrc` and other such application configs. This way, I have full control of my application settings, and can be synced across multiple devices since they are version controlled using Git.
+
+## Working with Stow
+
+Once all softwares are installed as in the previous step using the `osx.sh` shell script, we need to install a couple of things manually before we can fully utilize `stow`.
+
+Install `Node Version Manager` or `nvm`, which is required by some `Lua` packages for `LazyVim` (in turn `NeoVim`), this way we avoid any errors when using symlinks to setup NeoVim. With `nvm` installed, we will then install the LTS version of `node`, which will also install `npm` for us.
+
+```bash
+brew install nvm
+# check nvm
+nvm --version
+nvm install --lts
+# check node and npm
+node --version
+npm --version
+```
+
+With this, we can now setup our dotfiles with `stow`. If you have not already cloned this repository, do it now, and place it in a location where you want to manage your dotfiles from.
+
+Now, let's run the `stow` command to generate symlinks with the `dotfiles` option, which is optimized for handling dotfiles symlinks.
+
+```bash
+# cd into the dotfiles folder.
+cd ~/Developer/dotfiles
+stow --dotfiles . --target=~/
+```
+
+The above command should automatically generate symlinks based on the folder structure (works with nested directories as well).
 <!---
 Here are the apps that will be installed using this script:
 
@@ -83,7 +114,7 @@ Here are the apps that will be installed using this script:
 </p>
 -->
 
-## :spiral_notepad: Additional resources/references
+<!-- ## :spiral_notepad: Additional resources/references
 
 - [Awesome Dotfiles](https://github.com/webpro/awesome-dotfiles)
 - [Homebrew](https://brew.sh)
@@ -99,12 +130,15 @@ Here are the apps that will be installed using this script:
 - [commitizen](https://github.com/commitizen/cz-cli#making-your-repo-commitizen-friendly)
 - [cz-emoji](https://github.com/ngryman/cz-emoji)
 - [Dracula Terminal](https://draculatheme.com/terminal)
-- [Material Theme](https://gist.github.com/mvaneijgen/4c56701215847dd5ddcf)
+- [Material Theme](https://gist.github.com/mvaneijgen/4c56701215847dd5ddcf) -->
 
-## :ninja: Author
+> \[!IMPORTANT]\
+> The `configs/` folder contains a backup of older configuration files from `v2.x`, although VSCode setup requires the [`extensions.txt`](./configs/vscode/extensions.txt) file to setup the extensions. Other configurations are left as backup of older configs.
+
+## Author
 
 [Siddharth Rawat](mailto:sydrawat@gmail.com)
 
-## :scroll: License
+## License
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)

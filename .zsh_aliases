@@ -1,0 +1,36 @@
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# Command aliases
+alias ll="ls -larth"
+
+# ansible
+alias a="ansible"
+
+# argocd
+alias ad="argocd --grpc-web"
+# terraform
+alias tf="terraform"
+alias tfp="tf plan"
+alias tfa="tf apply"
+alias tfd="tf destroy"
+
+# kubernetes
+alias k="kubectl"
+alias kns="kubens"
+alias ktx="kubectx"
+
+# git aliases
+alias g="git"
+alias pull="g pull upstream master"
+alias push="g push sid master"
+
+# Developer
+alias dev="cd ~/Developer/"
+alias pwn="dev && cd pwncorp"
