@@ -1,3 +1,13 @@
+# [3.0.0](https://github.com/sydrawat01/dotfiles/compare/v2.2.1...v3.0.0) (2024-05-07)
+
+
+* feat!: add support for GNU Stow ([6c72851](https://github.com/sydrawat01/dotfiles/commit/6c72851eeaa90989603c11f1c53693c8b1287efa))
+
+
+### BREAKING CHANGES
+
+* dotfiles symlinks maintained by GNU Stow.
+
 ## [2.2.1](https://github.com/sydrawat01/dotfiles/compare/v2.2.0...v2.2.1) (2023-12-27)
 
 
