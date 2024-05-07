@@ -135,6 +135,13 @@ Here are the apps that will be installed using this script:
 > \[!IMPORTANT]\
 > The `configs/` folder contains a backup of older configuration files from `v2.x`, although VSCode setup requires the [`extensions.txt`](./configs/vscode/extensions.txt) file to setup the extensions. Other configurations are left as backup of older configs.
 
+## WIP
+
+> \[!WARNING]\
+> This is something subjective, so DevOps tools like `Docker`, `Kubernetes`, `Kind`, `Minikube`, `Terraform`, `Packer`, `Ansible` etc., will be added to the install script in the future releases as per required. Note that the user will not be prompted to install/skip these tools, and will be installed regardless. In case these are required, I'll add a simple bash command to install these outside of the install script.
+
+Install Devops related tools with `homebrew` in the install script `osx.sh`.
+
 ## Author
 
 [Siddharth Rawat](mailto:sydrawat@gmail.com)
