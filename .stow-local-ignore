@@ -1,0 +1,10 @@
+.*.json
+.*.md
+.*.sh
+\.releaserc
+LICENSE
+\.gitignore
+\.github
+\.git
+configs
+
